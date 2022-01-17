@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -33,7 +34,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Play Game"/>
                                 <connections>
-                                    <segue destination="nD3-hx-u15" kind="presentation" modalPresentationStyle="fullScreen" id="XJ4-tU-RGi"/>
+                                    <segue destination="zjZ-7l-JN0" kind="presentation" modalPresentationStyle="fullScreen" id="OKL-xk-H0V"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -45,10 +46,10 @@
             </objects>
             <point key="canvasLocation" x="-2439.130434782609" y="12.723214285714285"/>
         </scene>
-        <!--Game View Controller-->
+        <!--Instruction View Controller-->
         <scene sceneID="hSI-LB-PdP">
             <objects>
-                <viewController id="nD3-hx-u15" customClass="GameViewController" customModule="Mastermind" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="nD3-hx-u15" customClass="InstructionViewController" customModule="Mastermind" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="WNQ-7f-MNP">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -58,13 +59,922 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Psy-lB-8ex" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1652" y="13"/>
+            <point key="canvasLocation" x="-1004" y="13"/>
+        </scene>
+        <!--Game View Controller-->
+        <scene sceneID="7lU-HU-jPA">
+            <objects>
+                <viewController id="zjZ-7l-JN0" customClass="GameViewController" customModule="Mastermind" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="wj0-k1-V9C">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DVS-nt-ETI" userLabel="Header View">
+                                <rect key="frame" x="0.0" y="44" width="414" height="60"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MASTERMIND" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QHC-jk-rRZ">
+                                        <rect key="frame" x="112" y="10.5" width="190.5" height="39"/>
+                                        <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="30"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemGrayColor"/>
+                                <constraints>
+                                    <constraint firstItem="QHC-jk-rRZ" firstAttribute="centerY" secondItem="DVS-nt-ETI" secondAttribute="centerY" id="Ilg-VW-8H9"/>
+                                    <constraint firstAttribute="height" constant="60" id="kft-T4-dil"/>
+                                    <constraint firstItem="QHC-jk-rRZ" firstAttribute="centerX" secondItem="DVS-nt-ETI" secondAttribute="centerX" id="yMx-ug-ACh"/>
+                                </constraints>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="tPE-Ty-QLg">
+                                <rect key="frame" x="10" y="114" width="394" height="678"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="djT-ef-IdE" userLabel="Master Code Stack">
+                                        <rect key="frame" x="0.0" y="0.0" width="394" height="46"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vr5-F6-4wX">
+                                                <rect key="frame" x="0.0" y="0.0" width="67" height="46"/>
+                                                <color key="backgroundColor" name="AccentColor"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" buttonSize="small"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fpn-dS-wfJ">
+                                                <rect key="frame" x="82" y="0.0" width="66.5" height="46"/>
+                                                <color key="backgroundColor" name="AccentColor"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hOk-uA-yOm">
+                                                <rect key="frame" x="163.5" y="0.0" width="67" height="46"/>
+                                                <color key="backgroundColor" name="AccentColor"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gsg-ZX-o3D">
+                                                <rect key="frame" x="245.5" y="0.0" width="66.5" height="46"/>
+                                                <color key="backgroundColor" name="AccentColor"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LhT-Fo-ilq">
+                                                <rect key="frame" x="327" y="0.0" width="67" height="46"/>
+                                                <color key="backgroundColor" systemColor="systemGray2Color"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="CHECK">
+                                                    <fontDescription key="titleFontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="10"/>
+                                                    <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="btnValidate:" destination="zjZ-7l-JN0" eventType="touchUpInside" id="YKk-bz-DPF"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="pWL-so-lnL" userLabel="Guess 1 Stack">
+                                        <rect key="frame" x="0.0" y="63" width="394" height="46.5"/>
+                                        <subviews>
+                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gbd-Lf-UTn" userLabel="1-1">
+                                                <rect key="frame" x="0.0" y="0.0" width="67" height="46.5"/>
+                                                <color key="backgroundColor" name="AccentColor"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain"/>
+                                                <connections>
+                                                    <action selector="btnGuessClicked:" destination="zjZ-7l-JN0" eventType="touchUpInside" id="OOV-RH-lvU"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tp7-FZ-3uO" userLabel="1-2">
+                                                <rect key="frame" x="82" y="0.0" width="66.5" height="46.5"/>
+                                                <color key="backgroundColor" name="AccentColor"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain"/>
+                                                <connections>
+                                                    <action selector="btnGuessClicked:" destination="zjZ-7l-JN0" eventType="touchUpInside" id="1ae-nD-Nbv"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Av9-cl-FTE" userLabel="1-3">
+                                                <rect key="frame" x="163.5" y="0.0" width="67" height="46.5"/>
+                                                <color key="backgroundColor" name="AccentColor"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain"/>
+                                                <connections>
+                                                    <action selector="btnGuessClicked:" destination="zjZ-7l-JN0" eventType="touchUpInside" id="tdO-pm-hvX"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uO4-7U-OaG" userLabel="1-4">
+                                                <rect key="frame" x="245.5" y="0.0" width="66.5" height="46.5"/>
+                                                <color key="backgroundColor" name="AccentColor"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain"/>
+                                                <connections>
+                                                    <action selector="btnGuessClicked:" destination="zjZ-7l-JN0" eventType="touchUpInside" id="MvX-xg-Aaa"/>
+                                                </connections>
+                                            </button>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Gd6-8p-KsP" userLabel="Guess 1 Hint Stack">
+                                                <rect key="frame" x="327" y="0.0" width="67" height="46.5"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" tag="101" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BL:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yeg-Lx-FpV" userLabel="Black Pegs">
+                                                        <rect key="frame" x="0.0" y="0.0" width="67" height="19.5"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" tag="102" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WH:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cHS-l1-AO3" userLabel="White Pegs">
+                                                        <rect key="frame" x="0.0" y="27.5" width="67" height="19"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="oAs-MA-ZGG" userLabel="Guess 2 Stack">
+                                        <rect key="frame" x="0.0" y="126.5" width="394" height="46"/>
+                                        <subviews>
+                                            <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e0e-Ej-Og3" userLabel="2-1">
+                                                <rect key="frame" x="0.0" y="0.0" width="67" height="46"/>
+                                                <color key="backgroundColor" name="AccentColor"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain"/>
+                                                <connections>
+                                                    <action selector="btnGuessClicked:" destination="zjZ-7l-JN0" eventType="touchUpInside" id="2nA-ZK-Ahs"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gE0-sR-MWZ" userLabel="2-2">
+                                                <rect key="frame" x="82" y="0.0" width="66.5" height="46"/>
+                                                <color key="backgroundColor" name="AccentColor"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain"/>
+                                                <connections>
+                                                    <action selector="btnGuessClicked:" destination="zjZ-7l-JN0" eventType="touchUpInside" id="9xA-i1-uQz"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cqz-zq-Tdo" userLabel="2-3">
+                                                <rect key="frame" x="163.5" y="0.0" width="67" height="46"/>
+                                                <color key="backgroundColor" name="AccentColor"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain"/>
+                                                <connections>
+                                                    <action selector="btnGuessClicked:" destination="zjZ-7l-JN0" eventType="touchUpInside" id="x3A-hE-8eu"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hzn-me-QdV" userLabel="2-4">
+                                                <rect key="frame" x="245.5" y="0.0" width="66.5" height="46"/>
+                                                <color key="backgroundColor" name="AccentColor"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain"/>
+                                                <connections>
+                                                    <action selector="btnGuessClicked:" destination="zjZ-7l-JN0" eventType="touchUpInside" id="AYg-ft-4XE"/>
+                                                </connections>
+                                            </button>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="EOn-eB-VUm" userLabel="Guess 1 Hint Stack">
+                                                <rect key="frame" x="327" y="0.0" width="67" height="46"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" tag="201" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BL:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p9M-wc-VwH" userLabel="Black Pegs">
+                                                        <rect key="frame" x="0.0" y="0.0" width="67" height="19"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" tag="202" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WH:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XQB-kA-Jru" userLabel="White Pegs">
+                                                        <rect key="frame" x="0.0" y="27" width="67" height="19"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="bg3-x0-BO5" userLabel="Guess 3 Stack">
+                                        <rect key="frame" x="0.0" y="189.5" width="394" height="46"/>
+                                        <subviews>
+                                            <button opaque="NO" tag="9" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V40-Ny-iPb" userLabel="3-1">
+                                                <rect key="frame" x="0.0" y="0.0" width="67" height="46"/>
+                                                <color key="backgroundColor" name="AccentColor"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain"/>
+                                                <connections>
+                                                    <action selector="btnGuessClicked:" destination="zjZ-7l-JN0" eventType="touchUpInside" id="Fht-xe-ovI"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" tag="10" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5jo-FK-7Z1" userLabel="3-2">
+                                                <rect key="frame" x="82" y="0.0" width="66.5" height="46"/>
+                                                <color key="backgroundColor" name="AccentColor"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain"/>
+                                                <connections>
+                                                    <action selector="btnGuessClicked:" destination="zjZ-7l-JN0" eventType="touchUpInside" id="2me-ZC-3rq"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" tag="11" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HTM-s4-cDy" userLabel="3-3">
+                                                <rect key="frame" x="163.5" y="0.0" width="67" height="46"/>
+                                                <color key="backgroundColor" name="AccentColor"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain"/>
+                                                <connections>
+                                                    <action selector="btnGuessClicked:" destination="zjZ-7l-JN0" eventType="touchUpInside" id="cvD-V3-EJ9"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" tag="12" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cwT-5g-i2R" userLabel="3-4">
+                                                <rect key="frame" x="245.5" y="0.0" width="66.5" height="46"/>
+                                                <color key="backgroundColor" name="AccentColor"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain"/>
+                                                <connections>
+                                                    <action selector="btnGuessClicked:" destination="zjZ-7l-JN0" eventType="touchUpInside" id="ILn-o9-pr1"/>
+                                                </connections>
+                                            </button>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="jx2-fa-S3c" userLabel="Guess 1 Hint Stack">
+                                                <rect key="frame" x="327" y="0.0" width="67" height="46"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" tag="301" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BL:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tIo-27-sb7" userLabel="Black Pegs">
+                                                        <rect key="frame" x="0.0" y="0.0" width="67" height="19"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" tag="302" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WH:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HU4-nZ-We6" userLabel="White Pegs">
+                                                        <rect key="frame" x="0.0" y="27" width="67" height="19"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="bbh-J3-9ZF" userLabel="Guess 4 Stack">
+                                        <rect key="frame" x="0.0" y="252.5" width="394" height="46.5"/>
+                                        <subviews>
+                                            <button opaque="NO" tag="13" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bac-4n-URt" userLabel="4-1">
+                                                <rect key="frame" x="0.0" y="0.0" width="67" height="46.5"/>
+                                                <color key="backgroundColor" name="AccentColor"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain"/>
+                                                <connections>
+                                                    <action selector="btnGuessClicked:" destination="zjZ-7l-JN0" eventType="touchUpInside" id="AjT-MO-03o"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" tag="14" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pYr-SN-O47" userLabel="4-2">
+                                                <rect key="frame" x="82" y="0.0" width="66.5" height="46.5"/>
+                                                <color key="backgroundColor" name="AccentColor"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain"/>
+                                                <connections>
+                                                    <action selector="btnGuessClicked:" destination="zjZ-7l-JN0" eventType="touchUpInside" id="3hH-Rt-5os"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" tag="15" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n9O-K1-6bg" userLabel="4-3">
+                                                <rect key="frame" x="163.5" y="0.0" width="67" height="46.5"/>
+                                                <color key="backgroundColor" name="AccentColor"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain"/>
+                                                <connections>
+                                                    <action selector="btnGuessClicked:" destination="zjZ-7l-JN0" eventType="touchUpInside" id="e4r-zm-UOc"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" tag="16" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wix-fJ-5ib" userLabel="4-4">
+                                                <rect key="frame" x="245.5" y="0.0" width="66.5" height="46.5"/>
+                                                <color key="backgroundColor" name="AccentColor"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain"/>
+                                                <connections>
+                                                    <action selector="btnGuessClicked:" destination="zjZ-7l-JN0" eventType="touchUpInside" id="pXD-tX-4ey"/>
+                                                </connections>
+                                            </button>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="czj-NG-9oZ" userLabel="Guess 1 Hint Stack">
+                                                <rect key="frame" x="327" y="0.0" width="67" height="46.5"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" tag="401" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BL:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XwL-ck-vyb" userLabel="Black Pegs">
+                                                        <rect key="frame" x="0.0" y="0.0" width="67" height="19.5"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" tag="402" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WH:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2sE-AR-zEJ" userLabel="White Pegs">
+                                                        <rect key="frame" x="0.0" y="27.5" width="67" height="19"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="rFc-4H-7Bh" userLabel="Guess 5 Stack">
+                                        <rect key="frame" x="0.0" y="316" width="394" height="46"/>
+                                        <subviews>
+                                            <button opaque="NO" tag="17" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ey7-AQ-Z3w" userLabel="5-1">
+                                                <rect key="frame" x="0.0" y="0.0" width="67" height="46"/>
+                                                <color key="backgroundColor" name="AccentColor"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain"/>
+                                                <connections>
+                                                    <action selector="btnGuessClicked:" destination="zjZ-7l-JN0" eventType="touchUpInside" id="FZ9-oX-crp"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" tag="18" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7C4-If-819" userLabel="5-2">
+                                                <rect key="frame" x="82" y="0.0" width="66.5" height="46"/>
+                                                <color key="backgroundColor" name="AccentColor"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain"/>
+                                                <connections>
+                                                    <action selector="btnGuessClicked:" destination="zjZ-7l-JN0" eventType="touchUpInside" id="Lmk-KB-fht"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" tag="19" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UmX-Td-CTz" userLabel="5-3">
+                                                <rect key="frame" x="163.5" y="0.0" width="67" height="46"/>
+                                                <color key="backgroundColor" name="AccentColor"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain"/>
+                                                <connections>
+                                                    <action selector="btnGuessClicked:" destination="zjZ-7l-JN0" eventType="touchUpInside" id="5pH-Ja-9gu"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" tag="20" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eT5-rB-vRI" userLabel="5-4">
+                                                <rect key="frame" x="245.5" y="0.0" width="66.5" height="46"/>
+                                                <color key="backgroundColor" name="AccentColor"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain"/>
+                                                <connections>
+                                                    <action selector="btnGuessClicked:" destination="zjZ-7l-JN0" eventType="touchUpInside" id="ZtV-MK-hCv"/>
+                                                </connections>
+                                            </button>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="CYX-L5-RMy" userLabel="Guess 1 Hint Stack">
+                                                <rect key="frame" x="327" y="0.0" width="67" height="46"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" tag="501" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BL:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="keH-hF-76P" userLabel="Black Pegs">
+                                                        <rect key="frame" x="0.0" y="0.0" width="67" height="19"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" tag="502" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WH:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mp5-BL-5pn" userLabel="White Pegs">
+                                                        <rect key="frame" x="0.0" y="27" width="67" height="19"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="gou-1Q-JWD" userLabel="Guess 6 Stack">
+                                        <rect key="frame" x="0.0" y="379" width="394" height="46.5"/>
+                                        <subviews>
+                                            <button opaque="NO" tag="21" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U3W-VZ-Xr7" userLabel="6-1">
+                                                <rect key="frame" x="0.0" y="0.0" width="67" height="46.5"/>
+                                                <color key="backgroundColor" name="AccentColor"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain"/>
+                                                <connections>
+                                                    <action selector="btnGuessClicked:" destination="zjZ-7l-JN0" eventType="touchUpInside" id="1FN-Mb-HDS"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" tag="22" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QN3-1q-T1I" userLabel="6-2">
+                                                <rect key="frame" x="82" y="0.0" width="66.5" height="46.5"/>
+                                                <color key="backgroundColor" name="AccentColor"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain"/>
+                                                <connections>
+                                                    <action selector="btnGuessClicked:" destination="zjZ-7l-JN0" eventType="touchUpInside" id="Uhv-Ak-3wi"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" tag="23" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sNv-NL-9VM" userLabel="6-3">
+                                                <rect key="frame" x="163.5" y="0.0" width="67" height="46.5"/>
+                                                <color key="backgroundColor" name="AccentColor"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain"/>
+                                                <connections>
+                                                    <action selector="btnGuessClicked:" destination="zjZ-7l-JN0" eventType="touchUpInside" id="YX5-2m-LAa"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" tag="24" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fh8-T8-GgM" userLabel="6-4">
+                                                <rect key="frame" x="245.5" y="0.0" width="66.5" height="46.5"/>
+                                                <color key="backgroundColor" name="AccentColor"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain"/>
+                                                <connections>
+                                                    <action selector="btnGuessClicked:" destination="zjZ-7l-JN0" eventType="touchUpInside" id="2eC-5G-eY9"/>
+                                                </connections>
+                                            </button>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ZHS-6h-sDG" userLabel="Guess 1 Hint Stack">
+                                                <rect key="frame" x="327" y="0.0" width="67" height="46.5"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" tag="601" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BL:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JUm-Wf-Tsj" userLabel="Black Pegs">
+                                                        <rect key="frame" x="0.0" y="0.0" width="67" height="19"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" tag="602" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WH:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cJL-5p-vSt" userLabel="White Pegs">
+                                                        <rect key="frame" x="0.0" y="27" width="67" height="19.5"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="KKc-8o-4yv" userLabel="Guess 7 Stack">
+                                        <rect key="frame" x="0.0" y="442.5" width="394" height="46"/>
+                                        <subviews>
+                                            <button opaque="NO" tag="25" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hIJ-AW-8hV" userLabel="7-1">
+                                                <rect key="frame" x="0.0" y="0.0" width="67" height="46"/>
+                                                <color key="backgroundColor" name="AccentColor"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain"/>
+                                                <connections>
+                                                    <action selector="btnGuessClicked:" destination="zjZ-7l-JN0" eventType="touchUpInside" id="gRI-gA-Z2R"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" tag="26" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rxZ-07-1X5" userLabel="7-2">
+                                                <rect key="frame" x="82" y="0.0" width="66.5" height="46"/>
+                                                <color key="backgroundColor" name="AccentColor"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain"/>
+                                                <connections>
+                                                    <action selector="btnGuessClicked:" destination="zjZ-7l-JN0" eventType="touchUpInside" id="92L-d4-Oiy"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" tag="27" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lEG-nd-xrW" userLabel="7-3">
+                                                <rect key="frame" x="163.5" y="0.0" width="67" height="46"/>
+                                                <color key="backgroundColor" name="AccentColor"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain"/>
+                                                <connections>
+                                                    <action selector="btnGuessClicked:" destination="zjZ-7l-JN0" eventType="touchUpInside" id="1E0-U8-Qo8"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" tag="28" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vmr-no-PLu" userLabel="7-4">
+                                                <rect key="frame" x="245.5" y="0.0" width="66.5" height="46"/>
+                                                <color key="backgroundColor" name="AccentColor"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain"/>
+                                                <connections>
+                                                    <action selector="btnGuessClicked:" destination="zjZ-7l-JN0" eventType="touchUpInside" id="aIT-1h-AeK"/>
+                                                </connections>
+                                            </button>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="k8p-lx-gsF" userLabel="Guess 1 Hint Stack">
+                                                <rect key="frame" x="327" y="0.0" width="67" height="46"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" tag="701" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BL:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7f6-us-TqO" userLabel="Black Pegs">
+                                                        <rect key="frame" x="0.0" y="0.0" width="67" height="19"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" tag="702" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WH:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u5R-6W-CGq" userLabel="White Pegs">
+                                                        <rect key="frame" x="0.0" y="27" width="67" height="19"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="DCc-zd-cjb" userLabel="Guess 8 Stack">
+                                        <rect key="frame" x="0.0" y="505.5" width="394" height="46"/>
+                                        <subviews>
+                                            <button opaque="NO" tag="29" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DDz-99-Eex" userLabel="8-1">
+                                                <rect key="frame" x="0.0" y="0.0" width="67" height="46"/>
+                                                <color key="backgroundColor" name="AccentColor"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain"/>
+                                                <connections>
+                                                    <action selector="btnGuessClicked:" destination="zjZ-7l-JN0" eventType="touchUpInside" id="xo0-A1-wlN"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" tag="30" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MuY-lz-UEW" userLabel="8-2">
+                                                <rect key="frame" x="82" y="0.0" width="66.5" height="46"/>
+                                                <color key="backgroundColor" name="AccentColor"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain"/>
+                                                <connections>
+                                                    <action selector="btnGuessClicked:" destination="zjZ-7l-JN0" eventType="touchUpInside" id="7eq-Tz-rXX"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" tag="31" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DJv-2f-xR7" userLabel="8-3">
+                                                <rect key="frame" x="163.5" y="0.0" width="67" height="46"/>
+                                                <color key="backgroundColor" name="AccentColor"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain"/>
+                                                <connections>
+                                                    <action selector="btnGuessClicked:" destination="zjZ-7l-JN0" eventType="touchUpInside" id="BPZ-fN-dWE"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" tag="32" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q6i-FX-pdJ" userLabel="8-4">
+                                                <rect key="frame" x="245.5" y="0.0" width="66.5" height="46"/>
+                                                <color key="backgroundColor" name="AccentColor"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain"/>
+                                                <connections>
+                                                    <action selector="btnGuessClicked:" destination="zjZ-7l-JN0" eventType="touchUpInside" id="T7Q-Px-0PP"/>
+                                                </connections>
+                                            </button>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="pse-7S-Dmb" userLabel="Guess 1 Hint Stack">
+                                                <rect key="frame" x="327" y="0.0" width="67" height="46"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" tag="801" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BL:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MOL-UM-i90" userLabel="Black Pegs">
+                                                        <rect key="frame" x="0.0" y="0.0" width="67" height="19"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" tag="802" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WH:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qdR-Zw-Drx" userLabel="White Pegs">
+                                                        <rect key="frame" x="0.0" y="27" width="67" height="19"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="cPJ-L2-kAG" userLabel="Guess 9 Stack">
+                                        <rect key="frame" x="0.0" y="568.5" width="394" height="46.5"/>
+                                        <subviews>
+                                            <button opaque="NO" tag="33" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UYX-Fk-t19" userLabel="9-1">
+                                                <rect key="frame" x="0.0" y="0.0" width="67" height="46.5"/>
+                                                <color key="backgroundColor" name="AccentColor"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain"/>
+                                                <connections>
+                                                    <action selector="btnGuessClicked:" destination="zjZ-7l-JN0" eventType="touchUpInside" id="RYg-XP-pbN"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" tag="34" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dPh-z6-XDT" userLabel="9-2">
+                                                <rect key="frame" x="82" y="0.0" width="66.5" height="46.5"/>
+                                                <color key="backgroundColor" name="AccentColor"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain"/>
+                                                <connections>
+                                                    <action selector="btnGuessClicked:" destination="zjZ-7l-JN0" eventType="touchUpInside" id="Qpz-YM-dq2"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" tag="35" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BCa-v3-5Ci" userLabel="9-3">
+                                                <rect key="frame" x="163.5" y="0.0" width="67" height="46.5"/>
+                                                <color key="backgroundColor" name="AccentColor"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain"/>
+                                                <connections>
+                                                    <action selector="btnGuessClicked:" destination="zjZ-7l-JN0" eventType="touchUpInside" id="zgD-SQ-NsQ"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" tag="36" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0d7-uI-8Sv" userLabel="9-4">
+                                                <rect key="frame" x="245.5" y="0.0" width="66.5" height="46.5"/>
+                                                <color key="backgroundColor" name="AccentColor"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain"/>
+                                                <connections>
+                                                    <action selector="btnGuessClicked:" destination="zjZ-7l-JN0" eventType="touchUpInside" id="B5k-3h-XK9"/>
+                                                </connections>
+                                            </button>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="30g-MJ-yao" userLabel="Guess 1 Hint Stack">
+                                                <rect key="frame" x="327" y="0.0" width="67" height="46.5"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" tag="901" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BL:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="63E-Qu-Fgp" userLabel="Black Pegs">
+                                                        <rect key="frame" x="0.0" y="0.0" width="67" height="19"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" tag="902" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WH:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ets-7z-ohi" userLabel="White Pegs">
+                                                        <rect key="frame" x="0.0" y="27" width="67" height="19.5"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="3g3-CF-eWb" userLabel="Guess 10 Stack">
+                                        <rect key="frame" x="0.0" y="632" width="394" height="46"/>
+                                        <subviews>
+                                            <button opaque="NO" tag="37" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zCr-li-F53" userLabel="10-1">
+                                                <rect key="frame" x="0.0" y="0.0" width="67" height="46"/>
+                                                <color key="backgroundColor" name="AccentColor"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain"/>
+                                                <connections>
+                                                    <action selector="btnGuessClicked:" destination="zjZ-7l-JN0" eventType="touchUpInside" id="sX3-3o-Sny"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" tag="38" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x2V-A0-E9D" userLabel="10-2">
+                                                <rect key="frame" x="82" y="0.0" width="66.5" height="46"/>
+                                                <color key="backgroundColor" name="AccentColor"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain"/>
+                                                <connections>
+                                                    <action selector="btnGuessClicked:" destination="zjZ-7l-JN0" eventType="touchUpInside" id="3hA-9V-V2j"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" tag="39" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bf7-6e-Wqk" userLabel="10-3">
+                                                <rect key="frame" x="163.5" y="0.0" width="67" height="46"/>
+                                                <color key="backgroundColor" name="AccentColor"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain"/>
+                                                <connections>
+                                                    <action selector="btnGuessClicked:" destination="zjZ-7l-JN0" eventType="touchUpInside" id="xxD-P3-GJs"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" tag="40" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XYs-M2-LTD" userLabel="10-4">
+                                                <rect key="frame" x="245.5" y="0.0" width="66.5" height="46"/>
+                                                <color key="backgroundColor" name="AccentColor"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain"/>
+                                                <connections>
+                                                    <action selector="btnGuessClicked:" destination="zjZ-7l-JN0" eventType="touchUpInside" id="fSB-Wv-697"/>
+                                                </connections>
+                                            </button>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Bw7-zW-0BP" userLabel="Guess 1 Hint Stack">
+                                                <rect key="frame" x="327" y="0.0" width="67" height="46"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" tag="1001" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BL:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FLg-sw-rag" userLabel="Black Pegs">
+                                                        <rect key="frame" x="0.0" y="0.0" width="67" height="19"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" tag="1002" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WH:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UcM-gW-7J8" userLabel="White Pegs">
+                                                        <rect key="frame" x="0.0" y="27" width="67" height="19"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JiD-tN-Dc5" userLabel="Footer View">
+                                <rect key="frame" x="0.0" y="802" width="414" height="60"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PGr-xV-IU6" userLabel="Start Button">
+                                        <rect key="frame" x="138" y="16" width="139" height="31"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="START">
+                                            <fontDescription key="titleFontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="30"/>
+                                            <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="btnStart:" destination="zjZ-7l-JN0" eventType="touchUpInside" id="1jf-OP-P9o"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="kby-X8-E5y"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="dVl-RW-RHE"/>
+                        <color key="backgroundColor" systemColor="systemGray6Color"/>
+                        <constraints>
+                            <constraint firstItem="DVS-nt-ETI" firstAttribute="leading" secondItem="dVl-RW-RHE" secondAttribute="leading" id="9Lf-aC-fpl"/>
+                            <constraint firstItem="DVS-nt-ETI" firstAttribute="top" secondItem="dVl-RW-RHE" secondAttribute="top" id="Cii-Ov-Bfd"/>
+                            <constraint firstItem="JiD-tN-Dc5" firstAttribute="leading" secondItem="dVl-RW-RHE" secondAttribute="leading" id="MzG-Ka-7Hl"/>
+                            <constraint firstItem="JiD-tN-Dc5" firstAttribute="top" secondItem="tPE-Ty-QLg" secondAttribute="bottom" constant="10" id="Qkn-wr-AC3"/>
+                            <constraint firstItem="tPE-Ty-QLg" firstAttribute="top" secondItem="DVS-nt-ETI" secondAttribute="bottom" constant="10" id="Z8G-9L-G1m"/>
+                            <constraint firstItem="dVl-RW-RHE" firstAttribute="trailing" secondItem="tPE-Ty-QLg" secondAttribute="trailing" constant="10" id="dRB-7T-DIY"/>
+                            <constraint firstItem="JiD-tN-Dc5" firstAttribute="trailing" secondItem="dVl-RW-RHE" secondAttribute="trailing" id="eGo-Wf-4r0"/>
+                            <constraint firstItem="DVS-nt-ETI" firstAttribute="trailing" secondItem="dVl-RW-RHE" secondAttribute="trailing" id="kWX-0E-7bK"/>
+                            <constraint firstItem="tPE-Ty-QLg" firstAttribute="leading" secondItem="dVl-RW-RHE" secondAttribute="leading" constant="10" id="kz0-Iu-nrv"/>
+                            <constraint firstItem="dVl-RW-RHE" firstAttribute="bottom" secondItem="JiD-tN-Dc5" secondAttribute="bottom" id="srr-XU-Urr"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="btnGues8_2" destination="MuY-lz-UEW" id="k9Z-hu-bjk"/>
+                        <outlet property="btnGuess10_1" destination="zCr-li-F53" id="5mE-Cv-iqK"/>
+                        <outlet property="btnGuess10_2" destination="x2V-A0-E9D" id="bfx-OM-I1b"/>
+                        <outlet property="btnGuess10_3" destination="Bf7-6e-Wqk" id="kcM-wN-XmB"/>
+                        <outlet property="btnGuess10_4" destination="XYs-M2-LTD" id="Iwj-33-SQJ"/>
+                        <outlet property="btnGuess1_1" destination="Gbd-Lf-UTn" id="ezG-FJ-ZJ4"/>
+                        <outlet property="btnGuess1_2" destination="Tp7-FZ-3uO" id="GhE-qN-CBd"/>
+                        <outlet property="btnGuess1_3" destination="Av9-cl-FTE" id="qjU-Qa-m8D"/>
+                        <outlet property="btnGuess1_4" destination="uO4-7U-OaG" id="nQY-4c-5Tk"/>
+                        <outlet property="btnGuess2_1" destination="e0e-Ej-Og3" id="PlJ-nm-gAW"/>
+                        <outlet property="btnGuess2_2" destination="gE0-sR-MWZ" id="5vj-rd-ajm"/>
+                        <outlet property="btnGuess2_3" destination="cqz-zq-Tdo" id="Hhk-pT-tcT"/>
+                        <outlet property="btnGuess2_4" destination="hzn-me-QdV" id="bjc-pb-0u4"/>
+                        <outlet property="btnGuess3_1" destination="V40-Ny-iPb" id="5cJ-D8-8cu"/>
+                        <outlet property="btnGuess3_2" destination="5jo-FK-7Z1" id="t5G-Sb-onx"/>
+                        <outlet property="btnGuess3_3" destination="HTM-s4-cDy" id="43h-fX-eqg"/>
+                        <outlet property="btnGuess3_4" destination="cwT-5g-i2R" id="7yr-iC-3gZ"/>
+                        <outlet property="btnGuess4_1" destination="Bac-4n-URt" id="AFY-BT-36d"/>
+                        <outlet property="btnGuess4_2" destination="pYr-SN-O47" id="EZi-NG-DO1"/>
+                        <outlet property="btnGuess4_3" destination="n9O-K1-6bg" id="egE-ns-gJb"/>
+                        <outlet property="btnGuess4_4" destination="Wix-fJ-5ib" id="NYE-2O-ywl"/>
+                        <outlet property="btnGuess5_1" destination="ey7-AQ-Z3w" id="jcp-rt-Tmj"/>
+                        <outlet property="btnGuess5_2" destination="7C4-If-819" id="V0G-fz-yOK"/>
+                        <outlet property="btnGuess5_3" destination="UmX-Td-CTz" id="wXM-ER-LMn"/>
+                        <outlet property="btnGuess5_4" destination="eT5-rB-vRI" id="v04-c7-e2E"/>
+                        <outlet property="btnGuess6_1" destination="U3W-VZ-Xr7" id="rcT-53-il5"/>
+                        <outlet property="btnGuess6_2" destination="QN3-1q-T1I" id="f1Q-6J-V33"/>
+                        <outlet property="btnGuess6_3" destination="sNv-NL-9VM" id="uL8-bf-Eg2"/>
+                        <outlet property="btnGuess6_4" destination="Fh8-T8-GgM" id="N5N-KA-lGI"/>
+                        <outlet property="btnGuess7_1" destination="hIJ-AW-8hV" id="AOU-bH-ZvS"/>
+                        <outlet property="btnGuess7_2" destination="rxZ-07-1X5" id="sa9-li-Oex"/>
+                        <outlet property="btnGuess7_3" destination="lEG-nd-xrW" id="hOe-pJ-N9q"/>
+                        <outlet property="btnGuess7_4" destination="Vmr-no-PLu" id="iv9-rl-ZeN"/>
+                        <outlet property="btnGuess8_1" destination="DDz-99-Eex" id="Awk-rv-KqD"/>
+                        <outlet property="btnGuess8_3" destination="DJv-2f-xR7" id="Lh3-5M-7Cc"/>
+                        <outlet property="btnGuess8_4" destination="Q6i-FX-pdJ" id="aaX-tS-WoM"/>
+                        <outlet property="btnGuess9_1" destination="UYX-Fk-t19" id="nrJ-bu-jc2"/>
+                        <outlet property="btnGuess9_2" destination="dPh-z6-XDT" id="1Oh-O3-VhR"/>
+                        <outlet property="btnGuess9_3" destination="BCa-v3-5Ci" id="4kn-k1-lc7"/>
+                        <outlet property="btnGuess9_4" destination="0d7-uI-8Sv" id="1cA-90-Ozi"/>
+                        <outlet property="btnMasterCode1" destination="Vr5-F6-4wX" id="XO7-rH-NB5"/>
+                        <outlet property="btnMasterCode2" destination="Fpn-dS-wfJ" id="JeW-DI-cCe"/>
+                        <outlet property="btnMasterCode3" destination="hOk-uA-yOm" id="1xK-mF-GZj"/>
+                        <outlet property="btnMasterCode4" destination="Gsg-ZX-o3D" id="b2g-oi-VKy"/>
+                        <outlet property="btnStart" destination="PGr-xV-IU6" id="nOZ-8t-aSy"/>
+                        <outlet property="btnValidateAnswer" destination="Fpn-dS-wfJ" id="dHp-FH-Rfx"/>
+                        <outlet property="masterLabel" destination="QHC-jk-rRZ" id="y2l-lS-LoG"/>
+                        <outletCollection property="guessCodeButtons" destination="Gbd-Lf-UTn" collectionClass="NSMutableArray" id="PSX-C7-K4c"/>
+                        <outletCollection property="guessCodeButtons" destination="Tp7-FZ-3uO" collectionClass="NSMutableArray" id="CEk-5S-PlJ"/>
+                        <outletCollection property="guessCodeButtons" destination="Av9-cl-FTE" collectionClass="NSMutableArray" id="IBX-Hs-VMq"/>
+                        <outletCollection property="guessCodeButtons" destination="e0e-Ej-Og3" collectionClass="NSMutableArray" id="ekD-my-WgN"/>
+                        <outletCollection property="guessCodeButtons" destination="gE0-sR-MWZ" collectionClass="NSMutableArray" id="uQN-Lq-C5U"/>
+                        <outletCollection property="guessCodeButtons" destination="cqz-zq-Tdo" collectionClass="NSMutableArray" id="ypf-DM-gjI"/>
+                        <outletCollection property="guessCodeButtons" destination="hzn-me-QdV" collectionClass="NSMutableArray" id="nUQ-SX-c2X"/>
+                        <outletCollection property="guessCodeButtons" destination="V40-Ny-iPb" collectionClass="NSMutableArray" id="GvX-Ij-bnA"/>
+                        <outletCollection property="guessCodeButtons" destination="5jo-FK-7Z1" collectionClass="NSMutableArray" id="35w-Ej-F0b"/>
+                        <outletCollection property="guessCodeButtons" destination="HTM-s4-cDy" collectionClass="NSMutableArray" id="9bl-sU-kQS"/>
+                        <outletCollection property="guessCodeButtons" destination="cwT-5g-i2R" collectionClass="NSMutableArray" id="fxx-v3-63j"/>
+                        <outletCollection property="guessCodeButtons" destination="Bac-4n-URt" collectionClass="NSMutableArray" id="3hZ-eB-DJg"/>
+                        <outletCollection property="guessCodeButtons" destination="pYr-SN-O47" collectionClass="NSMutableArray" id="2g7-Vo-QDa"/>
+                        <outletCollection property="guessCodeButtons" destination="n9O-K1-6bg" collectionClass="NSMutableArray" id="vac-5Q-2Ln"/>
+                        <outletCollection property="guessCodeButtons" destination="Wix-fJ-5ib" collectionClass="NSMutableArray" id="Vyw-As-00R"/>
+                        <outletCollection property="guessCodeButtons" destination="ey7-AQ-Z3w" collectionClass="NSMutableArray" id="BGQ-yl-OGV"/>
+                        <outletCollection property="guessCodeButtons" destination="7C4-If-819" collectionClass="NSMutableArray" id="gYo-FA-zBo"/>
+                        <outletCollection property="guessCodeButtons" destination="UmX-Td-CTz" collectionClass="NSMutableArray" id="1Og-nU-g2E"/>
+                        <outletCollection property="guessCodeButtons" destination="eT5-rB-vRI" collectionClass="NSMutableArray" id="nyi-eX-Jqu"/>
+                        <outletCollection property="guessCodeButtons" destination="U3W-VZ-Xr7" collectionClass="NSMutableArray" id="AAp-LN-aLF"/>
+                        <outletCollection property="guessCodeButtons" destination="QN3-1q-T1I" collectionClass="NSMutableArray" id="MND-Ps-jGX"/>
+                        <outletCollection property="guessCodeButtons" destination="sNv-NL-9VM" collectionClass="NSMutableArray" id="EZY-56-2X8"/>
+                        <outletCollection property="guessCodeButtons" destination="Fh8-T8-GgM" collectionClass="NSMutableArray" id="y8y-eR-4Vx"/>
+                        <outletCollection property="guessCodeButtons" destination="hIJ-AW-8hV" collectionClass="NSMutableArray" id="zgW-xA-8et"/>
+                        <outletCollection property="guessCodeButtons" destination="rxZ-07-1X5" collectionClass="NSMutableArray" id="GSv-zz-IXT"/>
+                        <outletCollection property="guessCodeButtons" destination="lEG-nd-xrW" collectionClass="NSMutableArray" id="LlG-pH-EUp"/>
+                        <outletCollection property="guessCodeButtons" destination="Vmr-no-PLu" collectionClass="NSMutableArray" id="X8v-ut-K8d"/>
+                        <outletCollection property="guessCodeButtons" destination="DDz-99-Eex" collectionClass="NSMutableArray" id="YDI-lu-Lbu"/>
+                        <outletCollection property="guessCodeButtons" destination="MuY-lz-UEW" collectionClass="NSMutableArray" id="FxE-WI-moD"/>
+                        <outletCollection property="guessCodeButtons" destination="DJv-2f-xR7" collectionClass="NSMutableArray" id="Dmd-af-1Ss"/>
+                        <outletCollection property="guessCodeButtons" destination="Q6i-FX-pdJ" collectionClass="NSMutableArray" id="8kn-c9-nDb"/>
+                        <outletCollection property="guessCodeButtons" destination="UYX-Fk-t19" collectionClass="NSMutableArray" id="l3g-OK-66a"/>
+                        <outletCollection property="guessCodeButtons" destination="dPh-z6-XDT" collectionClass="NSMutableArray" id="nHu-JS-hR6"/>
+                        <outletCollection property="guessCodeButtons" destination="BCa-v3-5Ci" collectionClass="NSMutableArray" id="QT1-mV-mw2"/>
+                        <outletCollection property="guessCodeButtons" destination="0d7-uI-8Sv" collectionClass="NSMutableArray" id="5oN-tg-Xv9"/>
+                        <outletCollection property="guessCodeButtons" destination="zCr-li-F53" collectionClass="NSMutableArray" id="3jY-vX-X7l"/>
+                        <outletCollection property="guessCodeButtons" destination="x2V-A0-E9D" collectionClass="NSMutableArray" id="zOJ-K8-IU1"/>
+                        <outletCollection property="guessCodeButtons" destination="Bf7-6e-Wqk" collectionClass="NSMutableArray" id="2iZ-Pf-qi5"/>
+                        <outletCollection property="guessCodeButtons" destination="XYs-M2-LTD" collectionClass="NSMutableArray" id="QAC-F7-K4O"/>
+                        <outletCollection property="allButtons" destination="PGr-xV-IU6" collectionClass="NSMutableArray" id="shb-vp-soM"/>
+                        <outletCollection property="allButtons" destination="Vr5-F6-4wX" collectionClass="NSMutableArray" id="tDs-NG-Hft"/>
+                        <outletCollection property="allButtons" destination="Fpn-dS-wfJ" collectionClass="NSMutableArray" id="D8v-Je-iRr"/>
+                        <outletCollection property="allButtons" destination="hOk-uA-yOm" collectionClass="NSMutableArray" id="bTk-ra-IMG"/>
+                        <outletCollection property="allButtons" destination="Gsg-ZX-o3D" collectionClass="NSMutableArray" id="pAl-NK-hWd"/>
+                        <outletCollection property="allButtons" destination="LhT-Fo-ilq" collectionClass="NSMutableArray" id="pLZ-R4-jJC"/>
+                        <outletCollection property="masterCodeButtons" destination="Vr5-F6-4wX" collectionClass="NSMutableArray" id="W9P-4A-3dO"/>
+                        <outletCollection property="masterCodeButtons" destination="Fpn-dS-wfJ" collectionClass="NSMutableArray" id="JgC-Xb-KVM"/>
+                        <outletCollection property="masterCodeButtons" destination="hOk-uA-yOm" collectionClass="NSMutableArray" id="eKx-H0-SrF"/>
+                        <outletCollection property="masterCodeButtons" destination="Gsg-ZX-o3D" collectionClass="NSMutableArray" id="TpX-I7-yjf"/>
+                        <outletCollection property="allButtons" destination="Gbd-Lf-UTn" collectionClass="NSMutableArray" id="hca-vN-TF3"/>
+                        <outletCollection property="allButtons" destination="Tp7-FZ-3uO" collectionClass="NSMutableArray" id="63d-ll-IxO"/>
+                        <outletCollection property="allButtons" destination="Av9-cl-FTE" collectionClass="NSMutableArray" id="FnS-48-OQC"/>
+                        <outletCollection property="allButtons" destination="e0e-Ej-Og3" collectionClass="NSMutableArray" id="jf3-AJ-6ay"/>
+                        <outletCollection property="allButtons" destination="V40-Ny-iPb" collectionClass="NSMutableArray" id="wpZ-S5-EnA"/>
+                        <outletCollection property="allButtons" destination="Bac-4n-URt" collectionClass="NSMutableArray" id="4Oj-rb-NxX"/>
+                        <outletCollection property="allButtons" destination="ey7-AQ-Z3w" collectionClass="NSMutableArray" id="zM0-Pb-BUs"/>
+                        <outletCollection property="allButtons" destination="U3W-VZ-Xr7" collectionClass="NSMutableArray" id="9cL-In-8eI"/>
+                        <outletCollection property="allButtons" destination="hIJ-AW-8hV" collectionClass="NSMutableArray" id="k5L-hZ-Cf3"/>
+                        <outletCollection property="allButtons" destination="DDz-99-Eex" collectionClass="NSMutableArray" id="cdS-lj-gi1"/>
+                        <outletCollection property="allButtons" destination="UYX-Fk-t19" collectionClass="NSMutableArray" id="2js-o3-dIf"/>
+                        <outletCollection property="allButtons" destination="zCr-li-F53" collectionClass="NSMutableArray" id="rRe-en-2WC"/>
+                        <outletCollection property="allButtons" destination="gE0-sR-MWZ" collectionClass="NSMutableArray" id="yTz-uF-r5u"/>
+                        <outletCollection property="allButtons" destination="cqz-zq-Tdo" collectionClass="NSMutableArray" id="qKU-RK-wDJ"/>
+                        <outletCollection property="allButtons" destination="hzn-me-QdV" collectionClass="NSMutableArray" id="5c0-CF-hOp"/>
+                        <outletCollection property="allButtons" destination="5jo-FK-7Z1" collectionClass="NSMutableArray" id="6dQ-PR-Gbt"/>
+                        <outletCollection property="allButtons" destination="HTM-s4-cDy" collectionClass="NSMutableArray" id="uyJ-MR-8d8"/>
+                        <outletCollection property="allButtons" destination="cwT-5g-i2R" collectionClass="NSMutableArray" id="Fv8-pZ-T0H"/>
+                        <outletCollection property="allButtons" destination="pYr-SN-O47" collectionClass="NSMutableArray" id="CHQ-Q5-kqX"/>
+                        <outletCollection property="allButtons" destination="n9O-K1-6bg" collectionClass="NSMutableArray" id="wka-e3-Cqw"/>
+                        <outletCollection property="allButtons" destination="Wix-fJ-5ib" collectionClass="NSMutableArray" id="Yfy-V6-uuE"/>
+                        <outletCollection property="allButtons" destination="7C4-If-819" collectionClass="NSMutableArray" id="oru-cW-409"/>
+                        <outletCollection property="allButtons" destination="UmX-Td-CTz" collectionClass="NSMutableArray" id="n0b-Pj-WoO"/>
+                        <outletCollection property="allButtons" destination="eT5-rB-vRI" collectionClass="NSMutableArray" id="jEt-ID-vBd"/>
+                        <outletCollection property="allButtons" destination="QN3-1q-T1I" collectionClass="NSMutableArray" id="5Sx-lU-uFh"/>
+                        <outletCollection property="allButtons" destination="sNv-NL-9VM" collectionClass="NSMutableArray" id="wcf-Hn-shP"/>
+                        <outletCollection property="allButtons" destination="Fh8-T8-GgM" collectionClass="NSMutableArray" id="6gh-JA-g3v"/>
+                        <outletCollection property="allButtons" destination="rxZ-07-1X5" collectionClass="NSMutableArray" id="65W-Bw-Gg6"/>
+                        <outletCollection property="allButtons" destination="lEG-nd-xrW" collectionClass="NSMutableArray" id="fg5-bL-gBY"/>
+                        <outletCollection property="allButtons" destination="Vmr-no-PLu" collectionClass="NSMutableArray" id="I8x-hT-IDj"/>
+                        <outletCollection property="allButtons" destination="MuY-lz-UEW" collectionClass="NSMutableArray" id="UGn-c6-t9x"/>
+                        <outletCollection property="allButtons" destination="DJv-2f-xR7" collectionClass="NSMutableArray" id="DUz-u5-gB9"/>
+                        <outletCollection property="allButtons" destination="Q6i-FX-pdJ" collectionClass="NSMutableArray" id="kZb-dJ-Fxo"/>
+                        <outletCollection property="allButtons" destination="dPh-z6-XDT" collectionClass="NSMutableArray" id="3f7-Qs-hYj"/>
+                        <outletCollection property="allButtons" destination="BCa-v3-5Ci" collectionClass="NSMutableArray" id="C51-hc-neQ"/>
+                        <outletCollection property="allButtons" destination="0d7-uI-8Sv" collectionClass="NSMutableArray" id="tjZ-6Z-oXZ"/>
+                        <outletCollection property="allButtons" destination="x2V-A0-E9D" collectionClass="NSMutableArray" id="TxW-26-ezw"/>
+                        <outletCollection property="allButtons" destination="Bf7-6e-Wqk" collectionClass="NSMutableArray" id="qCD-up-R2A"/>
+                        <outletCollection property="allButtons" destination="XYs-M2-LTD" collectionClass="NSMutableArray" id="2o8-j2-sZs"/>
+                        <outletCollection property="allButtons" destination="uO4-7U-OaG" collectionClass="NSMutableArray" id="ebS-ik-hUH"/>
+                        <outletCollection property="guessCodeButtons" destination="uO4-7U-OaG" collectionClass="NSMutableArray" id="SNI-Y2-co0"/>
+                        <outletCollection property="masterButtons" destination="Vr5-F6-4wX" collectionClass="NSMutableArray" id="x4R-hu-FGy"/>
+                        <outletCollection property="guessButtons" destination="Gbd-Lf-UTn" collectionClass="NSMutableArray" id="QKg-zy-s3G"/>
+                        <outletCollection property="allButtons" destination="LhT-Fo-ilq" collectionClass="NSMutableArray" id="Efy-n5-nAl"/>
+                        <outletCollection property="masterButtons" destination="Fpn-dS-wfJ" collectionClass="NSMutableArray" id="IpZ-h4-y3d"/>
+                        <outletCollection property="masterButtons" destination="hOk-uA-yOm" collectionClass="NSMutableArray" id="R0Y-IT-PR3"/>
+                        <outletCollection property="masterButtons" destination="Gsg-ZX-o3D" collectionClass="NSMutableArray" id="rWW-KJ-FrB"/>
+                        <outletCollection property="guessButtons" destination="Tp7-FZ-3uO" collectionClass="NSMutableArray" id="2mD-N0-PIG"/>
+                        <outletCollection property="guessButtons" destination="Av9-cl-FTE" collectionClass="NSMutableArray" id="oIB-c4-4jh"/>
+                        <outletCollection property="guessButtons" destination="uO4-7U-OaG" collectionClass="NSMutableArray" id="7YT-fK-WXE"/>
+                        <outletCollection property="guessButtons" destination="e0e-Ej-Og3" collectionClass="NSMutableArray" id="5m2-KS-ZaL"/>
+                        <outletCollection property="guessButtons" destination="gE0-sR-MWZ" collectionClass="NSMutableArray" id="JK6-ix-LJx"/>
+                        <outletCollection property="guessButtons" destination="cqz-zq-Tdo" collectionClass="NSMutableArray" id="Cec-QJ-fmc"/>
+                        <outletCollection property="guessButtons" destination="hzn-me-QdV" collectionClass="NSMutableArray" id="W96-Td-f6A"/>
+                        <outletCollection property="guessButtons" destination="V40-Ny-iPb" collectionClass="NSMutableArray" id="L64-vW-6kf"/>
+                        <outletCollection property="guessButtons" destination="5jo-FK-7Z1" collectionClass="NSMutableArray" id="IGm-cR-Fca"/>
+                        <outletCollection property="guessButtons" destination="HTM-s4-cDy" collectionClass="NSMutableArray" id="hym-vE-LYc"/>
+                        <outletCollection property="guessButtons" destination="cwT-5g-i2R" collectionClass="NSMutableArray" id="m5p-kj-sVB"/>
+                        <outletCollection property="guessButtons" destination="Bac-4n-URt" collectionClass="NSMutableArray" id="QMG-Oa-oOC"/>
+                        <outletCollection property="guessButtons" destination="pYr-SN-O47" collectionClass="NSMutableArray" id="dfW-DH-6jg"/>
+                        <outletCollection property="guessButtons" destination="n9O-K1-6bg" collectionClass="NSMutableArray" id="hce-KS-U5c"/>
+                        <outletCollection property="guessButtons" destination="Wix-fJ-5ib" collectionClass="NSMutableArray" id="0JD-S6-QB5"/>
+                        <outletCollection property="guessButtons" destination="ey7-AQ-Z3w" collectionClass="NSMutableArray" id="U6v-EL-KzV"/>
+                        <outletCollection property="guessButtons" destination="7C4-If-819" collectionClass="NSMutableArray" id="CA6-7j-lnh"/>
+                        <outletCollection property="guessButtons" destination="UmX-Td-CTz" collectionClass="NSMutableArray" id="iJJ-L2-mdA"/>
+                        <outletCollection property="guessButtons" destination="eT5-rB-vRI" collectionClass="NSMutableArray" id="UfX-Ml-JRN"/>
+                        <outletCollection property="guessButtons" destination="U3W-VZ-Xr7" collectionClass="NSMutableArray" id="4yX-4J-KC4"/>
+                        <outletCollection property="guessButtons" destination="QN3-1q-T1I" collectionClass="NSMutableArray" id="9yB-Yc-rm8"/>
+                        <outletCollection property="guessButtons" destination="sNv-NL-9VM" collectionClass="NSMutableArray" id="IxT-fN-ZPt"/>
+                        <outletCollection property="guessButtons" destination="Fh8-T8-GgM" collectionClass="NSMutableArray" id="tsD-UE-b9j"/>
+                        <outletCollection property="guessButtons" destination="hIJ-AW-8hV" collectionClass="NSMutableArray" id="V3A-0j-GjU"/>
+                        <outletCollection property="guessButtons" destination="rxZ-07-1X5" collectionClass="NSMutableArray" id="WIq-Ln-zOn"/>
+                        <outletCollection property="guessButtons" destination="lEG-nd-xrW" collectionClass="NSMutableArray" id="EOC-6C-Jmc"/>
+                        <outletCollection property="guessButtons" destination="Vmr-no-PLu" collectionClass="NSMutableArray" id="GSK-Th-qKT"/>
+                        <outletCollection property="guessButtons" destination="DDz-99-Eex" collectionClass="NSMutableArray" id="ReC-sU-JSN"/>
+                        <outletCollection property="guessButtons" destination="MuY-lz-UEW" collectionClass="NSMutableArray" id="d0a-JF-jl8"/>
+                        <outletCollection property="guessButtons" destination="DJv-2f-xR7" collectionClass="NSMutableArray" id="609-np-0Q6"/>
+                        <outletCollection property="guessButtons" destination="Q6i-FX-pdJ" collectionClass="NSMutableArray" id="osH-1f-kYd"/>
+                        <outletCollection property="guessButtons" destination="UYX-Fk-t19" collectionClass="NSMutableArray" id="T1V-Kc-Xjq"/>
+                        <outletCollection property="guessButtons" destination="dPh-z6-XDT" collectionClass="NSMutableArray" id="Nhf-25-kIA"/>
+                        <outletCollection property="guessButtons" destination="BCa-v3-5Ci" collectionClass="NSMutableArray" id="Pdq-YL-zyl"/>
+                        <outletCollection property="guessButtons" destination="0d7-uI-8Sv" collectionClass="NSMutableArray" id="Wwl-rl-88W"/>
+                        <outletCollection property="guessButtons" destination="zCr-li-F53" collectionClass="NSMutableArray" id="fmM-OJ-0fP"/>
+                        <outletCollection property="guessButtons" destination="x2V-A0-E9D" collectionClass="NSMutableArray" id="jxn-j1-1Uc"/>
+                        <outletCollection property="guessButtons" destination="Bf7-6e-Wqk" collectionClass="NSMutableArray" id="iGx-7p-Z4W"/>
+                        <outletCollection property="guessButtons" destination="XYs-M2-LTD" collectionClass="NSMutableArray" id="Q0A-TJ-OhN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Gh5-3d-eld" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1704" y="13"/>
         </scene>
     </scenes>
     <resources>
         <image name="Safe Cracker (1024 x 1024)" width="341" height="341"/>
+        <namedColor name="AccentColor">
+            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray2Color">
+            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGray6Color">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGrayColor">
+            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemOrangeColor">
             <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
