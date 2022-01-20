@@ -46,21 +46,6 @@
             </objects>
             <point key="canvasLocation" x="-2439.130434782609" y="12.723214285714285"/>
         </scene>
-        <!--Instruction View Controller-->
-        <scene sceneID="hSI-LB-PdP">
-            <objects>
-                <viewController id="nD3-hx-u15" customClass="InstructionViewController" customModule="Mastermind" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="WNQ-7f-MNP">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="wuu-Mj-hbu"/>
-                        <color key="backgroundColor" systemColor="systemOrangeColor"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Psy-lB-8ex" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1004" y="13"/>
-        </scene>
         <!--Game View Controller-->
         <scene sceneID="7lU-HU-jPA">
             <objects>
@@ -73,13 +58,12 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="60"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MASTERMIND" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QHC-jk-rRZ">
-                                        <rect key="frame" x="112" y="10.5" width="190.5" height="39"/>
-                                        <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="30"/>
+                                        <rect key="frame" x="118" y="13.5" width="178" height="33"/>
+                                        <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="30"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemGrayColor"/>
                                 <constraints>
                                     <constraint firstItem="QHC-jk-rRZ" firstAttribute="centerY" secondItem="DVS-nt-ETI" secondAttribute="centerY" id="Ilg-VW-8H9"/>
                                     <constraint firstAttribute="height" constant="60" id="kft-T4-dil"/>
@@ -770,102 +754,18 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="btnGues8_2" destination="MuY-lz-UEW" id="k9Z-hu-bjk"/>
-                        <outlet property="btnGuess10_1" destination="zCr-li-F53" id="5mE-Cv-iqK"/>
-                        <outlet property="btnGuess10_2" destination="x2V-A0-E9D" id="bfx-OM-I1b"/>
-                        <outlet property="btnGuess10_3" destination="Bf7-6e-Wqk" id="kcM-wN-XmB"/>
-                        <outlet property="btnGuess10_4" destination="XYs-M2-LTD" id="Iwj-33-SQJ"/>
-                        <outlet property="btnGuess1_1" destination="Gbd-Lf-UTn" id="ezG-FJ-ZJ4"/>
-                        <outlet property="btnGuess1_2" destination="Tp7-FZ-3uO" id="GhE-qN-CBd"/>
-                        <outlet property="btnGuess1_3" destination="Av9-cl-FTE" id="qjU-Qa-m8D"/>
-                        <outlet property="btnGuess1_4" destination="uO4-7U-OaG" id="nQY-4c-5Tk"/>
-                        <outlet property="btnGuess2_1" destination="e0e-Ej-Og3" id="PlJ-nm-gAW"/>
-                        <outlet property="btnGuess2_2" destination="gE0-sR-MWZ" id="5vj-rd-ajm"/>
-                        <outlet property="btnGuess2_3" destination="cqz-zq-Tdo" id="Hhk-pT-tcT"/>
-                        <outlet property="btnGuess2_4" destination="hzn-me-QdV" id="bjc-pb-0u4"/>
-                        <outlet property="btnGuess3_1" destination="V40-Ny-iPb" id="5cJ-D8-8cu"/>
-                        <outlet property="btnGuess3_2" destination="5jo-FK-7Z1" id="t5G-Sb-onx"/>
-                        <outlet property="btnGuess3_3" destination="HTM-s4-cDy" id="43h-fX-eqg"/>
-                        <outlet property="btnGuess3_4" destination="cwT-5g-i2R" id="7yr-iC-3gZ"/>
-                        <outlet property="btnGuess4_1" destination="Bac-4n-URt" id="AFY-BT-36d"/>
-                        <outlet property="btnGuess4_2" destination="pYr-SN-O47" id="EZi-NG-DO1"/>
-                        <outlet property="btnGuess4_3" destination="n9O-K1-6bg" id="egE-ns-gJb"/>
-                        <outlet property="btnGuess4_4" destination="Wix-fJ-5ib" id="NYE-2O-ywl"/>
-                        <outlet property="btnGuess5_1" destination="ey7-AQ-Z3w" id="jcp-rt-Tmj"/>
-                        <outlet property="btnGuess5_2" destination="7C4-If-819" id="V0G-fz-yOK"/>
-                        <outlet property="btnGuess5_3" destination="UmX-Td-CTz" id="wXM-ER-LMn"/>
-                        <outlet property="btnGuess5_4" destination="eT5-rB-vRI" id="v04-c7-e2E"/>
-                        <outlet property="btnGuess6_1" destination="U3W-VZ-Xr7" id="rcT-53-il5"/>
-                        <outlet property="btnGuess6_2" destination="QN3-1q-T1I" id="f1Q-6J-V33"/>
-                        <outlet property="btnGuess6_3" destination="sNv-NL-9VM" id="uL8-bf-Eg2"/>
-                        <outlet property="btnGuess6_4" destination="Fh8-T8-GgM" id="N5N-KA-lGI"/>
-                        <outlet property="btnGuess7_1" destination="hIJ-AW-8hV" id="AOU-bH-ZvS"/>
-                        <outlet property="btnGuess7_2" destination="rxZ-07-1X5" id="sa9-li-Oex"/>
-                        <outlet property="btnGuess7_3" destination="lEG-nd-xrW" id="hOe-pJ-N9q"/>
-                        <outlet property="btnGuess7_4" destination="Vmr-no-PLu" id="iv9-rl-ZeN"/>
-                        <outlet property="btnGuess8_1" destination="DDz-99-Eex" id="Awk-rv-KqD"/>
-                        <outlet property="btnGuess8_3" destination="DJv-2f-xR7" id="Lh3-5M-7Cc"/>
-                        <outlet property="btnGuess8_4" destination="Q6i-FX-pdJ" id="aaX-tS-WoM"/>
-                        <outlet property="btnGuess9_1" destination="UYX-Fk-t19" id="nrJ-bu-jc2"/>
-                        <outlet property="btnGuess9_2" destination="dPh-z6-XDT" id="1Oh-O3-VhR"/>
-                        <outlet property="btnGuess9_3" destination="BCa-v3-5Ci" id="4kn-k1-lc7"/>
-                        <outlet property="btnGuess9_4" destination="0d7-uI-8Sv" id="1cA-90-Ozi"/>
                         <outlet property="btnMasterCode1" destination="Vr5-F6-4wX" id="XO7-rH-NB5"/>
                         <outlet property="btnMasterCode2" destination="Fpn-dS-wfJ" id="JeW-DI-cCe"/>
                         <outlet property="btnMasterCode3" destination="hOk-uA-yOm" id="1xK-mF-GZj"/>
                         <outlet property="btnMasterCode4" destination="Gsg-ZX-o3D" id="b2g-oi-VKy"/>
                         <outlet property="btnStart" destination="PGr-xV-IU6" id="nOZ-8t-aSy"/>
                         <outlet property="btnValidateAnswer" destination="Fpn-dS-wfJ" id="dHp-FH-Rfx"/>
-                        <outlet property="masterLabel" destination="QHC-jk-rRZ" id="y2l-lS-LoG"/>
-                        <outletCollection property="guessCodeButtons" destination="Gbd-Lf-UTn" collectionClass="NSMutableArray" id="PSX-C7-K4c"/>
-                        <outletCollection property="guessCodeButtons" destination="Tp7-FZ-3uO" collectionClass="NSMutableArray" id="CEk-5S-PlJ"/>
-                        <outletCollection property="guessCodeButtons" destination="Av9-cl-FTE" collectionClass="NSMutableArray" id="IBX-Hs-VMq"/>
-                        <outletCollection property="guessCodeButtons" destination="e0e-Ej-Og3" collectionClass="NSMutableArray" id="ekD-my-WgN"/>
-                        <outletCollection property="guessCodeButtons" destination="gE0-sR-MWZ" collectionClass="NSMutableArray" id="uQN-Lq-C5U"/>
-                        <outletCollection property="guessCodeButtons" destination="cqz-zq-Tdo" collectionClass="NSMutableArray" id="ypf-DM-gjI"/>
-                        <outletCollection property="guessCodeButtons" destination="hzn-me-QdV" collectionClass="NSMutableArray" id="nUQ-SX-c2X"/>
-                        <outletCollection property="guessCodeButtons" destination="V40-Ny-iPb" collectionClass="NSMutableArray" id="GvX-Ij-bnA"/>
-                        <outletCollection property="guessCodeButtons" destination="5jo-FK-7Z1" collectionClass="NSMutableArray" id="35w-Ej-F0b"/>
-                        <outletCollection property="guessCodeButtons" destination="HTM-s4-cDy" collectionClass="NSMutableArray" id="9bl-sU-kQS"/>
-                        <outletCollection property="guessCodeButtons" destination="cwT-5g-i2R" collectionClass="NSMutableArray" id="fxx-v3-63j"/>
-                        <outletCollection property="guessCodeButtons" destination="Bac-4n-URt" collectionClass="NSMutableArray" id="3hZ-eB-DJg"/>
-                        <outletCollection property="guessCodeButtons" destination="pYr-SN-O47" collectionClass="NSMutableArray" id="2g7-Vo-QDa"/>
-                        <outletCollection property="guessCodeButtons" destination="n9O-K1-6bg" collectionClass="NSMutableArray" id="vac-5Q-2Ln"/>
-                        <outletCollection property="guessCodeButtons" destination="Wix-fJ-5ib" collectionClass="NSMutableArray" id="Vyw-As-00R"/>
-                        <outletCollection property="guessCodeButtons" destination="ey7-AQ-Z3w" collectionClass="NSMutableArray" id="BGQ-yl-OGV"/>
-                        <outletCollection property="guessCodeButtons" destination="7C4-If-819" collectionClass="NSMutableArray" id="gYo-FA-zBo"/>
-                        <outletCollection property="guessCodeButtons" destination="UmX-Td-CTz" collectionClass="NSMutableArray" id="1Og-nU-g2E"/>
-                        <outletCollection property="guessCodeButtons" destination="eT5-rB-vRI" collectionClass="NSMutableArray" id="nyi-eX-Jqu"/>
-                        <outletCollection property="guessCodeButtons" destination="U3W-VZ-Xr7" collectionClass="NSMutableArray" id="AAp-LN-aLF"/>
-                        <outletCollection property="guessCodeButtons" destination="QN3-1q-T1I" collectionClass="NSMutableArray" id="MND-Ps-jGX"/>
-                        <outletCollection property="guessCodeButtons" destination="sNv-NL-9VM" collectionClass="NSMutableArray" id="EZY-56-2X8"/>
-                        <outletCollection property="guessCodeButtons" destination="Fh8-T8-GgM" collectionClass="NSMutableArray" id="y8y-eR-4Vx"/>
-                        <outletCollection property="guessCodeButtons" destination="hIJ-AW-8hV" collectionClass="NSMutableArray" id="zgW-xA-8et"/>
-                        <outletCollection property="guessCodeButtons" destination="rxZ-07-1X5" collectionClass="NSMutableArray" id="GSv-zz-IXT"/>
-                        <outletCollection property="guessCodeButtons" destination="lEG-nd-xrW" collectionClass="NSMutableArray" id="LlG-pH-EUp"/>
-                        <outletCollection property="guessCodeButtons" destination="Vmr-no-PLu" collectionClass="NSMutableArray" id="X8v-ut-K8d"/>
-                        <outletCollection property="guessCodeButtons" destination="DDz-99-Eex" collectionClass="NSMutableArray" id="YDI-lu-Lbu"/>
-                        <outletCollection property="guessCodeButtons" destination="MuY-lz-UEW" collectionClass="NSMutableArray" id="FxE-WI-moD"/>
-                        <outletCollection property="guessCodeButtons" destination="DJv-2f-xR7" collectionClass="NSMutableArray" id="Dmd-af-1Ss"/>
-                        <outletCollection property="guessCodeButtons" destination="Q6i-FX-pdJ" collectionClass="NSMutableArray" id="8kn-c9-nDb"/>
-                        <outletCollection property="guessCodeButtons" destination="UYX-Fk-t19" collectionClass="NSMutableArray" id="l3g-OK-66a"/>
-                        <outletCollection property="guessCodeButtons" destination="dPh-z6-XDT" collectionClass="NSMutableArray" id="nHu-JS-hR6"/>
-                        <outletCollection property="guessCodeButtons" destination="BCa-v3-5Ci" collectionClass="NSMutableArray" id="QT1-mV-mw2"/>
-                        <outletCollection property="guessCodeButtons" destination="0d7-uI-8Sv" collectionClass="NSMutableArray" id="5oN-tg-Xv9"/>
-                        <outletCollection property="guessCodeButtons" destination="zCr-li-F53" collectionClass="NSMutableArray" id="3jY-vX-X7l"/>
-                        <outletCollection property="guessCodeButtons" destination="x2V-A0-E9D" collectionClass="NSMutableArray" id="zOJ-K8-IU1"/>
-                        <outletCollection property="guessCodeButtons" destination="Bf7-6e-Wqk" collectionClass="NSMutableArray" id="2iZ-Pf-qi5"/>
-                        <outletCollection property="guessCodeButtons" destination="XYs-M2-LTD" collectionClass="NSMutableArray" id="QAC-F7-K4O"/>
                         <outletCollection property="allButtons" destination="PGr-xV-IU6" collectionClass="NSMutableArray" id="shb-vp-soM"/>
                         <outletCollection property="allButtons" destination="Vr5-F6-4wX" collectionClass="NSMutableArray" id="tDs-NG-Hft"/>
                         <outletCollection property="allButtons" destination="Fpn-dS-wfJ" collectionClass="NSMutableArray" id="D8v-Je-iRr"/>
                         <outletCollection property="allButtons" destination="hOk-uA-yOm" collectionClass="NSMutableArray" id="bTk-ra-IMG"/>
                         <outletCollection property="allButtons" destination="Gsg-ZX-o3D" collectionClass="NSMutableArray" id="pAl-NK-hWd"/>
                         <outletCollection property="allButtons" destination="LhT-Fo-ilq" collectionClass="NSMutableArray" id="pLZ-R4-jJC"/>
-                        <outletCollection property="masterCodeButtons" destination="Vr5-F6-4wX" collectionClass="NSMutableArray" id="W9P-4A-3dO"/>
-                        <outletCollection property="masterCodeButtons" destination="Fpn-dS-wfJ" collectionClass="NSMutableArray" id="JgC-Xb-KVM"/>
-                        <outletCollection property="masterCodeButtons" destination="hOk-uA-yOm" collectionClass="NSMutableArray" id="eKx-H0-SrF"/>
-                        <outletCollection property="masterCodeButtons" destination="Gsg-ZX-o3D" collectionClass="NSMutableArray" id="TpX-I7-yjf"/>
                         <outletCollection property="allButtons" destination="Gbd-Lf-UTn" collectionClass="NSMutableArray" id="hca-vN-TF3"/>
                         <outletCollection property="allButtons" destination="Tp7-FZ-3uO" collectionClass="NSMutableArray" id="63d-ll-IxO"/>
                         <outletCollection property="allButtons" destination="Av9-cl-FTE" collectionClass="NSMutableArray" id="FnS-48-OQC"/>
@@ -906,7 +806,6 @@
                         <outletCollection property="allButtons" destination="Bf7-6e-Wqk" collectionClass="NSMutableArray" id="qCD-up-R2A"/>
                         <outletCollection property="allButtons" destination="XYs-M2-LTD" collectionClass="NSMutableArray" id="2o8-j2-sZs"/>
                         <outletCollection property="allButtons" destination="uO4-7U-OaG" collectionClass="NSMutableArray" id="ebS-ik-hUH"/>
-                        <outletCollection property="guessCodeButtons" destination="uO4-7U-OaG" collectionClass="NSMutableArray" id="SNI-Y2-co0"/>
                         <outletCollection property="masterButtons" destination="Vr5-F6-4wX" collectionClass="NSMutableArray" id="x4R-hu-FGy"/>
                         <outletCollection property="guessButtons" destination="Gbd-Lf-UTn" collectionClass="NSMutableArray" id="QKg-zy-s3G"/>
                         <outletCollection property="allButtons" destination="LhT-Fo-ilq" collectionClass="NSMutableArray" id="Efy-n5-nAl"/>
@@ -972,12 +871,6 @@
         </systemColor>
         <systemColor name="systemGray6Color">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemGrayColor">
-            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemOrangeColor">
-            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
