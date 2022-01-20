@@ -19,7 +19,7 @@ class GameViewController: UIViewController {
     @IBOutlet weak var btnMasterCode2: UIButton!
     @IBOutlet weak var btnMasterCode3: UIButton!
     @IBOutlet weak var btnMasterCode4: UIButton!
-    @IBOutlet weak var btnStart: UIButton!
+    @IBOutlet weak var btnReset: UIButton!
     @IBOutlet weak var btnValidateAnswer: UIButton!
     
     // Variable link to the Brain struct
@@ -27,36 +27,18 @@ class GameViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Format all buttons using the button collections and hide the master code buttons
+        // Format all buttons using the button collections, hide the master code buttons, and start the game
         formatView()
         hideMasterCode(hide: true)
+        startGame()
     }
     
-    // Action when the Start or Reset button is clicked
-    @IBAction func btnStart(_ sender: UIButton) {
-        // Check if the start button is in START mode or RESET mode
-        if btnStart.currentTitle == "START" {
-            // Get the master code and apply it to the master code buttons
-            codeBrain.getMasterCode()
-            btnMasterCode1.backgroundColor = codeBrain.masterCodeArray[0]
-            btnMasterCode2.backgroundColor = codeBrain.masterCodeArray[1]
-            btnMasterCode3.backgroundColor = codeBrain.masterCodeArray[2]
-            btnMasterCode4.backgroundColor = codeBrain.masterCodeArray[3]
-            btnStart.setTitle("RESET", for: .normal)
-            btnValidateAnswer.setTitle("CHECK ANSWER", for: .normal)
-            // Start the guessCounter
-            codeBrain.guessCounter += 1
-            // Enable the appropriate guess buttons
-            buttonStatus(guessCounter: codeBrain.guessCounter)
-            // Enable the Validation button
-            btnValidateAnswer.isUserInteractionEnabled = true
-        } else {
-            // Reset the view to the original
-            // sendAlert(message: "RESET Enabled...Code will follow soon")
-            formatView()
-            hideMasterCode(hide: true)
-        }
-    } // End btnStart()
+    @IBAction func btnReset(_ sender: UIButton) {
+        // Reset the view to the original
+        formatView()
+        hideMasterCode(hide: true)
+        startGame()
+    }
     
     // Each click loops through the colors of the guess button
     @IBAction func btnGuessClicked(_ sender: UIButton) {
@@ -87,6 +69,9 @@ class GameViewController: UIViewController {
         // Assign the guess colors to the guessCodeArray
         let guessStart: Int = (codeBrain.guessCounter * 4) - 3
         let guessEnd: Int = codeBrain.guessCounter * 4
+        
+        // Enable the reset button
+        btnReset.isUserInteractionEnabled = true
         
         for tagvalue in guessStart...guessEnd {
             let button = self.view.viewWithTag(tagvalue) as! UIButton
@@ -126,6 +111,64 @@ class GameViewController: UIViewController {
         }
     } // End btnValidate()
     
+    //MARK : Format the screen
+    
+    func formatView() {
+        // Format all buttons using the button collections
+        for button in allButtons {
+            button.layer.cornerRadius = 10
+            button.layer.borderWidth = 1
+            button.backgroundColor = UIColor.clear
+            //button.isUserInteractionEnabled = false
+        }
+        // Turn off the validate button
+        btnValidateAnswer.isUserInteractionEnabled = false
+        // Set the Reset button title
+        btnReset.setTitle("RESET", for: .normal)
+        // Turn off the Reset button until the first guesses are made
+        btnReset.isUserInteractionEnabled = false
+        // Reset the guess counter
+        codeBrain.guessCounter = 0
+        // Reset the hint labels
+        for counter in 1...10 {
+            let blackPegPosition = (counter * 100) + 1
+            let whitePegPosition = (counter * 100) + 2
+            let blackLabel = self.view.viewWithTag(blackPegPosition) as! UILabel
+            blackLabel.text = " BL: "
+            let whiteLabel = self.view.viewWithTag(whitePegPosition) as! UILabel
+            whiteLabel.text = " WH: "
+        }
+    } // End formatView()
+    
+    //MARK -- Hide the Master Code buttons
+    
+    func hideMasterCode(hide: Bool) {
+        btnMasterCode1.isHidden = hide
+        btnMasterCode2.isHidden = hide
+        btnMasterCode3.isHidden = hide
+        btnMasterCode4.isHidden = hide
+    } // End hideMasterCode()
+    
+    //MARK -- Start the game
+    
+    func startGame() {
+        // Get the master code and apply it to the master code buttons
+        codeBrain.getMasterCode()
+        btnMasterCode1.backgroundColor = codeBrain.masterCodeArray[0]
+        btnMasterCode2.backgroundColor = codeBrain.masterCodeArray[1]
+        btnMasterCode3.backgroundColor = codeBrain.masterCodeArray[2]
+        btnMasterCode4.backgroundColor = codeBrain.masterCodeArray[3]
+        btnValidateAnswer.setTitle("CHECK ANSWER", for: .normal)
+        // Start the guessCounter
+        codeBrain.guessCounter += 1
+        // Enable the appropriate guess buttons
+        buttonStatus(guessCounter: codeBrain.guessCounter)
+        // Enable the Validation button
+        btnValidateAnswer.isUserInteractionEnabled = true
+    } // End startGame()
+    
+    //MARK -- Set the correct guess button status
+    
     func buttonStatus(guessCounter: Int) {
         let guessStart: Int = (guessCounter * 4) - 3
         let guessEnd: Int = guessCounter * 4
@@ -138,41 +181,9 @@ class GameViewController: UIViewController {
             button.isUserInteractionEnabled = true
         }
     } // End buttonStatus()
+
     
-    func formatView() {
-        // Format all buttons using the button collections
-        for button in allButtons {
-            button.layer.cornerRadius = 10
-            button.layer.borderWidth = 1
-            button.backgroundColor = UIColor.clear
-            //button.isUserInteractionEnabled = false
-        }
-        // Turn off the validate button
-        btnValidateAnswer.isUserInteractionEnabled = false
-        // Set the Start and Validate button titles
-        btnStart.setTitle("START", for: .normal)
-        btnValidateAnswer.setTitle("Click START to begin.", for: .normal)
-        // Allow the Start button to be clicked
-        btnStart.isUserInteractionEnabled = true
-        // Reset the guess counter
-        codeBrain.guessCounter = 0
-        // Reset the hint labels
-        for counter in 1...10 {
-            let blackPegPosition = (counter * 100) + 1
-            let whitePegPosition = (counter * 100) + 2
-            let blackLabel = self.view.viewWithTag(blackPegPosition) as! UILabel
-            blackLabel.text = " BL: "
-            let whiteLabel = self.view.viewWithTag(whitePegPosition) as! UILabel
-            whiteLabel.text = " WH: "
-        }
-    }
-    
-    func hideMasterCode(hide: Bool) {
-        btnMasterCode1.isHidden = hide
-        btnMasterCode2.isHidden = hide
-        btnMasterCode3.isHidden = hide
-        btnMasterCode4.isHidden = hide
-    }
+    //MARK -- Send Alerts, as required
     
     func sendAlert(message: String) {
         //Create the alert
@@ -184,16 +195,5 @@ class GameViewController: UIViewController {
         // Show the alert
         self.present(alert, animated: true, completion: nil)
     } // End sendAlert()
-    
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
     
 } // End ViewController

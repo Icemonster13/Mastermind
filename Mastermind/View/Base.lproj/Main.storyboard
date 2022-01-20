@@ -729,7 +729,7 @@
                                             <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </buttonConfiguration>
                                         <connections>
-                                            <action selector="btnStart:" destination="zjZ-7l-JN0" eventType="touchUpInside" id="1jf-OP-P9o"/>
+                                            <action selector="btnReset:" destination="zjZ-7l-JN0" eventType="touchUpInside" id="8au-f9-Cd8"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -758,7 +758,7 @@
                         <outlet property="btnMasterCode2" destination="Fpn-dS-wfJ" id="JeW-DI-cCe"/>
                         <outlet property="btnMasterCode3" destination="hOk-uA-yOm" id="1xK-mF-GZj"/>
                         <outlet property="btnMasterCode4" destination="Gsg-ZX-o3D" id="b2g-oi-VKy"/>
-                        <outlet property="btnStart" destination="PGr-xV-IU6" id="nOZ-8t-aSy"/>
+                        <outlet property="btnReset" destination="PGr-xV-IU6" id="wfr-al-3fg"/>
                         <outlet property="btnValidateAnswer" destination="Fpn-dS-wfJ" id="dHp-FH-Rfx"/>
                         <outletCollection property="allButtons" destination="PGr-xV-IU6" collectionClass="NSMutableArray" id="shb-vp-soM"/>
                         <outletCollection property="allButtons" destination="Vr5-F6-4wX" collectionClass="NSMutableArray" id="tDs-NG-Hft"/>
