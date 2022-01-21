@@ -10,6 +10,7 @@ import UIKit
 struct Brain {
     // Array of colors that can be chosen
     let colorArray = [UIColor.red, UIColor.orange, UIColor.yellow, UIColor.green, UIColor.blue, UIColor.purple]
+    
     // Array of colors chosen by the user
     var guessCodeArray = [
         UIColor.clear, UIColor.clear, UIColor.clear, UIColor.clear,
@@ -23,6 +24,7 @@ struct Brain {
         UIColor.clear, UIColor.clear, UIColor.clear, UIColor.clear,
         UIColor.clear, UIColor.clear, UIColor.clear, UIColor.clear
     ]
+    
     // Array of the master code
     var masterCodeArray = [UIColor.clear, UIColor.clear, UIColor.clear, UIColor.clear]
     // Integer for what guess is currently active
@@ -30,6 +32,7 @@ struct Brain {
     // Integer for the hint pegs
     var blackPeg: Int = 0
     var whitePeg: Int = 0
+    var hintPeg: [String] = ["▪️","▪️","▪️","▪️"]
     
     // Function to randomly select 4 colors and return them to the program as an array
     mutating func getMasterCode() {
@@ -96,6 +99,48 @@ struct Brain {
                         guessPositionArray[counter] = false
                     }
                 }
+            }
+            // Set the hintPeg variable
+            let num = blackPeg + whitePeg
+            switch num {
+            case 1:
+                if blackPeg == 1 {
+                    hintPeg = ["⚫️","▪️","▪️","▪️"]
+                } else {
+                    hintPeg = ["⚪️","▪️","▪️","▪️"]
+                }
+            case 2:
+                if blackPeg == 0 {
+                    hintPeg = ["⚪️","⚪️","▪️","▪️"]
+                } else if blackPeg == 1 {
+                    hintPeg = ["⚫️","⚪️","▪️","▪️"]
+                } else {
+                    hintPeg = ["⚫️","⚫️","▪️","▪️"]
+                }
+            case 3:
+                if blackPeg == 0 {
+                    hintPeg = ["⚪️","⚪️","⚪️","▪️"]
+                } else if blackPeg == 1 {
+                    hintPeg = ["⚫️","⚪️","⚪️","▪️"]
+                } else if blackPeg == 2 {
+                    hintPeg = ["⚫️","⚪️","⚪️","▪️"]
+                } else {
+                    hintPeg = ["⚫️","⚫️","⚫️","▪️"]
+                }
+            case 4:
+                if blackPeg == 0 {
+                    hintPeg = ["⚪️","⚪️","⚪️","⚪️"]
+                } else if blackPeg == 1 {
+                    hintPeg = ["⚫️","⚪️","⚪️","⚪️"]
+                } else if blackPeg == 2 {
+                    hintPeg = ["⚫️","⚪️","⚪️","⚪️"]
+                } else if blackPeg == 3 {
+                    hintPeg = ["⚫️","⚫️","⚫️","⚪️"]
+                } else {
+                    hintPeg = ["⚫️","⚫️","⚫️","⚫️"]
+                }
+            default:
+                hintPeg = ["▪️","▪️","▪️","▪️"]
             }
             return "Sorry, that is incorrect."
         }

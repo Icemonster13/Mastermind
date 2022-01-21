@@ -19,8 +19,9 @@ class GameViewController: UIViewController {
     @IBOutlet weak var btnMasterCode2: UIButton!
     @IBOutlet weak var btnMasterCode3: UIButton!
     @IBOutlet weak var btnMasterCode4: UIButton!
-    @IBOutlet weak var btnReset: UIButton!
     @IBOutlet weak var btnValidateAnswer: UIButton!
+    @IBOutlet weak var btnReset: UIButton!
+    @IBOutlet weak var btnInstructions: UIButton!
     
     // Variable link to the Brain struct
     var codeBrain = Brain()
@@ -91,9 +92,9 @@ class GameViewController: UIViewController {
             let blackPegPosition = (codeBrain.guessCounter * 100) + 1
             let whitePegPosition = (codeBrain.guessCounter * 100) + 2
             let blackLabel = self.view.viewWithTag(blackPegPosition) as! UILabel
-            blackLabel.text = " BL: \(codeBrain.blackPeg)"
+            blackLabel.text = " \(codeBrain.hintPeg[0]) \(codeBrain.hintPeg[1]) "
             let whiteLabel = self.view.viewWithTag(whitePegPosition) as! UILabel
-            whiteLabel.text = " WH: \(codeBrain.whitePeg)"
+            whiteLabel.text = " \(codeBrain.hintPeg[2]) \(codeBrain.hintPeg[3]) "
             // Check to ensure it is not past the 10th guess
             // If it is, then stop the game
             if codeBrain.guessCounter == 10 {
@@ -116,15 +117,12 @@ class GameViewController: UIViewController {
     func formatView() {
         // Format all buttons using the button collections
         for button in allButtons {
-            button.layer.cornerRadius = 10
+            button.layer.cornerRadius = 20
             button.layer.borderWidth = 1
             button.backgroundColor = UIColor.clear
-            //button.isUserInteractionEnabled = false
         }
         // Turn off the validate button
         btnValidateAnswer.isUserInteractionEnabled = false
-        // Set the Reset button title
-        btnReset.setTitle("RESET", for: .normal)
         // Turn off the Reset button until the first guesses are made
         btnReset.isUserInteractionEnabled = false
         // Reset the guess counter
@@ -134,9 +132,9 @@ class GameViewController: UIViewController {
             let blackPegPosition = (counter * 100) + 1
             let whitePegPosition = (counter * 100) + 2
             let blackLabel = self.view.viewWithTag(blackPegPosition) as! UILabel
-            blackLabel.text = " BL: "
+            blackLabel.text = " ▪️ ▪️ "
             let whiteLabel = self.view.viewWithTag(whitePegPosition) as! UILabel
-            whiteLabel.text = " WH: "
+            whiteLabel.text = " ▪️ ▪️ "
         }
     } // End formatView()
     
