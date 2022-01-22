@@ -84,6 +84,8 @@ class GameViewController: UIViewController {
         if validationResult == "Congratulations, you win!" {
             hideMasterCode(hide: false)
             btnValidateAnswer.setTitle("", for: .normal)
+            btnValidateAnswer.layer.borderWidth = 0
+            btnValidateAnswer.isUserInteractionEnabled = false
             sendAlert(message: validationResult)
         } else if validationResult == "You did not choose all colors. Please try again." {
             sendAlert(message: validationResult)
@@ -184,14 +186,28 @@ class GameViewController: UIViewController {
     //MARK -- Send Alerts, as required
     
     func sendAlert(message: String) {
-        //Create the alert
+        // Declare Alert message
         let alert = UIAlertController(title: "Mastermind", message: message, preferredStyle: UIAlertController.Style.alert)
         
-        // Add a button
-        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+        if message == "You have failed to guess the proper code. Would you like to play again?" {
+            let yes = UIAlertAction(title: "YES", style: .default, handler: { (action) -> Void in
+                // Reset the view to the original
+                self.formatView()
+                self.hideMasterCode(hide: true)
+                self.startGame()
+            })
+            let no = UIAlertAction(title: "NO", style: .default, handler: { (action) -> Void in
+                // Dismiss the screen and return to the EntryViewController
+                self.dismiss(animated: true, completion: nil)
+            })
+            alert.addAction(yes)
+            alert.addAction(no)
+        } else {
+            let ok = UIAlertAction(title: "OK", style: .default, handler: nil)
+            alert.addAction(ok)
+        }
         
         // Show the alert
         self.present(alert, animated: true, completion: nil)
-    } // End sendAlert()
-    
+    }
 } // End ViewController
