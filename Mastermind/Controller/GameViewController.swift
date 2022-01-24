@@ -88,7 +88,7 @@ class GameViewController: UIViewController {
         
         // Validate the guess code against the master code and return the results
         let validationResult = codeBrain.validateAnswer()
-        if validationResult == "Congratulations, you win!" {
+        if validationResult == "Congratulations, you win! Would you like to play again?" {
             hideMasterCode(hide: false)
             btnValidateAnswer.setTitle("", for: .normal)
             btnValidateAnswer.layer.borderWidth = 0
@@ -108,6 +108,7 @@ class GameViewController: UIViewController {
             // If it is, then stop the game
             if codeBrain.guessCounter == 10 {
                 hideMasterCode(hide: false)
+                btnValidateAnswer.layer.borderWidth = 0
                 btnValidateAnswer.setTitle("", for: .normal)
                 sendAlert(message: "You have failed to guess the proper code. Would you like to play again?")
             } else {
@@ -195,7 +196,7 @@ class GameViewController: UIViewController {
         // Declare Alert message
         let alert = UIAlertController(title: "Mastermind", message: message, preferredStyle: UIAlertController.Style.alert)
         
-        if message == "You have failed to guess the proper code. Would you like to play again?" || message == "Congratulations, you win!" {
+        if message == "You have failed to guess the proper code. Would you like to play again?" || message == "Congratulations, you win! Would you like to play again?" {
             let yes = UIAlertAction(title: "YES", style: .default, handler: { (action) -> Void in
                 // Reset the view to the original
                 self.formatView()

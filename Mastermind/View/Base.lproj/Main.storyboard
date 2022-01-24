@@ -18,40 +18,49 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MASTERMIND" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1kL-aT-LuZ">
-                                <rect key="frame" x="49" y="107" width="317" height="54.5"/>
+                                <rect key="frame" x="58" y="154" width="298" height="54.5"/>
                                 <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="50"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Safe Cracker (1024 x 1024)" translatesAutoresizingMaskIntoConstraints="NO" id="zky-sd-PZ2">
-                                <rect key="frame" x="37" y="268" width="341" height="341"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" fixedFrame="YES" image="Safe Cracker (1024 x 1024)" translatesAutoresizingMaskIntoConstraints="NO" id="zky-sd-PZ2">
+                                <rect key="frame" x="82" y="323" width="250" height="250"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3hp-Es-SlV">
-                                <rect key="frame" x="37" y="739" width="156" height="47"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Play Game"/>
-                                <connections>
-                                    <segue destination="zjZ-7l-JN0" kind="presentation" modalPresentationStyle="fullScreen" id="OKL-xk-H0V"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e2V-eS-gXk">
-                                <rect key="frame" x="210" y="739" width="156" height="47"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Instructions"/>
-                                <connections>
-                                    <segue destination="Don-Gc-m2f" kind="presentation" id="EnW-30-4ex"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleAspectFit" distribution="fillProportionally" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="K71-at-9wJ">
+                                <rect key="frame" x="20" y="670" width="374" height="50"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3hp-Es-SlV">
+                                        <rect key="frame" x="0.0" y="9.5" width="175.5" height="31"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Play Game"/>
+                                        <connections>
+                                            <segue destination="zjZ-7l-JN0" kind="presentation" modalPresentationStyle="fullScreen" id="OKL-xk-H0V"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e2V-eS-gXk">
+                                        <rect key="frame" x="179.5" y="9.5" width="194.5" height="31"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Instructions"/>
+                                        <connections>
+                                            <segue destination="Don-Gc-m2f" kind="presentation" id="EnW-30-4ex"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="3v0-TW-CVr"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="1kL-aT-LuZ" secondAttribute="trailing" constant="48" id="GmQ-oX-u5i"/>
-                            <constraint firstItem="1kL-aT-LuZ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="63" id="Jf5-RK-YyE"/>
-                            <constraint firstItem="1kL-aT-LuZ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="49" id="P7s-rc-seH"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="K71-at-9wJ" secondAttribute="bottom" constant="142" id="3iy-zw-7b6"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="K71-at-9wJ" secondAttribute="trailing" constant="20" id="F8z-jJ-ZQZ"/>
+                            <constraint firstItem="1kL-aT-LuZ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="110" id="Lqx-XB-Mg7"/>
+                            <constraint firstItem="1kL-aT-LuZ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="58" id="edn-hU-wH5"/>
+                            <constraint firstItem="K71-at-9wJ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="ikq-lR-ofw"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="1kL-aT-LuZ" secondAttribute="trailing" constant="58" id="t2f-0n-1HK"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -875,18 +884,19 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rTa-Qb-WIs">
-                                <rect key="frame" x="118" y="792" width="178" height="47"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rTa-Qb-WIs">
+                                <rect key="frame" x="177" y="792" width="60.5" height="31"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Close"/>
                                 <connections>
                                     <action selector="closeButtonPressed:" destination="Don-Gc-m2f" eventType="touchUpInside" id="Odo-wt-qtn"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GMb-VQ-Caz">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GMb-VQ-Caz">
                                 <rect key="frame" x="20" y="99" width="374" height="672"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="672" id="1wb-HD-Uop"/>
+                                </constraints>
                                 <string key="text">The CodeMaster has created a new code.  Can you figure it out before you run out of turns?  Each code is made up of four pegs that can be:  🔴  🟠  🟡  🟢  🔵  🟣  All color combinations are allowed, to include multiples of the same color.  You have ten (10) guesses to solve this puzzle.  Click the 'Check' button to validate your answer.  - Black pegs (⚫️) indicate the number of pegs that are of the correct color and in the correct position.  - White pegs (⚪️) indicate the number of pegs that are of the correct color but not in the correct position.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
@@ -896,7 +906,12 @@
                         <viewLayoutGuide key="safeArea" id="Bct-9p-HKO"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="GMb-VQ-Caz" firstAttribute="centerX" secondItem="rTa-Qb-WIs" secondAttribute="centerX" id="6nO-nw-9Kk"/>
                             <constraint firstItem="yzC-6Q-GUR" firstAttribute="centerX" secondItem="bXn-8i-VsM" secondAttribute="centerX" id="F2k-CR-DwA"/>
+                            <constraint firstItem="rTa-Qb-WIs" firstAttribute="top" secondItem="GMb-VQ-Caz" secondAttribute="bottom" constant="21" id="Qe9-BW-ZEQ"/>
+                            <constraint firstItem="GMb-VQ-Caz" firstAttribute="top" secondItem="yzC-6Q-GUR" secondAttribute="bottom" constant="12" id="dPA-fF-0Ov"/>
+                            <constraint firstItem="GMb-VQ-Caz" firstAttribute="centerX" secondItem="yzC-6Q-GUR" secondAttribute="centerX" id="kyM-Qu-uEN"/>
+                            <constraint firstItem="GMb-VQ-Caz" firstAttribute="leading" secondItem="bXn-8i-VsM" secondAttribute="leadingMargin" id="pVW-wg-wvZ"/>
                             <constraint firstItem="yzC-6Q-GUR" firstAttribute="top" secondItem="Bct-9p-HKO" secondAttribute="top" constant="10" id="qbt-qr-zGe"/>
                         </constraints>
                     </view>
