@@ -36,9 +36,15 @@ class GameViewController: UIViewController {
     
     @IBAction func btnReset(_ sender: UIButton) {
         // Reset the view to the original
-        formatView()
-        hideMasterCode(hide: true)
-        startGame()
+        if sender.currentTitle == "Quit" {
+            // Dismiss the screen and return to the EntryViewController
+            self.dismiss(animated: true, completion: nil)
+        } else {
+            // Reset the game and start over
+            formatView()
+            hideMasterCode(hide: true)
+            startGame()
+        }
     }
     
     // Each click loops through the colors of the guess button
@@ -72,6 +78,7 @@ class GameViewController: UIViewController {
         let guessEnd: Int = codeBrain.guessCounter * 4
         
         // Enable the reset button
+        btnReset.setTitle("Reset", for: .normal)
         btnReset.isUserInteractionEnabled = true
         
         for tagvalue in guessStart...guessEnd {
@@ -103,7 +110,6 @@ class GameViewController: UIViewController {
                 hideMasterCode(hide: false)
                 btnValidateAnswer.setTitle("", for: .normal)
                 sendAlert(message: "You have failed to guess the proper code. Would you like to play again?")
-                // Insert RESET code here
             } else {
                 sendAlert(message: validationResult)
                 // Increase the guessCounter
@@ -125,8 +131,8 @@ class GameViewController: UIViewController {
         }
         // Turn off the validate button
         btnValidateAnswer.isUserInteractionEnabled = false
-        // Turn off the Reset button until the first guesses are made
-        btnReset.isUserInteractionEnabled = false
+        // Set the reset button to Quit before the first attempt
+        btnReset.setTitle("Quit", for: .normal)
         // Reset the guess counter
         codeBrain.guessCounter = 0
         // Reset the hint labels
@@ -189,7 +195,7 @@ class GameViewController: UIViewController {
         // Declare Alert message
         let alert = UIAlertController(title: "Mastermind", message: message, preferredStyle: UIAlertController.Style.alert)
         
-        if message == "You have failed to guess the proper code. Would you like to play again?" {
+        if message == "You have failed to guess the proper code. Would you like to play again?" || message == "Congratulations, you win!" {
             let yes = UIAlertAction(title: "YES", style: .default, handler: { (action) -> Void in
                 // Reset the view to the original
                 self.formatView()
