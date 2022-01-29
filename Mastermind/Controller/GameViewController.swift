@@ -88,13 +88,13 @@ class GameViewController: UIViewController {
         
         // Validate the guess code against the master code and return the results
         let validationResult = codeBrain.validateAnswer()
-        if validationResult == "Congratulations, you win! Would you like to play again?" {
+        if validationResult == k.response.win {
             hideMasterCode(hide: false)
-            btnValidateAnswer.setTitle("", for: .normal)
-            btnValidateAnswer.layer.borderWidth = 0
+            btnValidateAnswer.setTitle("👍", for: .normal)
+            // btnValidateAnswer.layer.borderWidth = 0
             btnValidateAnswer.isUserInteractionEnabled = false
             sendAlert(message: validationResult)
-        } else if validationResult == "You did not choose all colors. Please try again." {
+        } else if validationResult == k.response.incomplete {
             sendAlert(message: validationResult)
         } else {
             //Set the Black and White Hint Pegs
@@ -110,7 +110,7 @@ class GameViewController: UIViewController {
                 hideMasterCode(hide: false)
                 btnValidateAnswer.layer.borderWidth = 0
                 btnValidateAnswer.setTitle("", for: .normal)
-                sendAlert(message: "You have failed to guess the proper code. Would you like to play again?")
+                sendAlert(message: k.response.lose)
             } else {
                 sendAlert(message: validationResult)
                 // Increase the guessCounter
@@ -194,9 +194,9 @@ class GameViewController: UIViewController {
     
     func sendAlert(message: String) {
         // Declare Alert message
-        let alert = UIAlertController(title: "Mastermind", message: message, preferredStyle: UIAlertController.Style.alert)
+        let alert = UIAlertController(title: k.appTitle, message: message, preferredStyle: UIAlertController.Style.alert)
         
-        if message == "You have failed to guess the proper code. Would you like to play again?" || message == "Congratulations, you win! Would you like to play again?" {
+        if message == k.response.win || message == k.response.lose {
             let yes = UIAlertAction(title: "YES", style: .default, handler: { (action) -> Void in
                 // Reset the view to the original
                 self.formatView()

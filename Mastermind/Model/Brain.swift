@@ -62,13 +62,13 @@ struct Brain {
             guessCodeArray[guessStart + 1] == UIColor.clear ||
             guessCodeArray[guessStart + 2] == UIColor.clear ||
             guessCodeArray[guessStart + 3] == UIColor.clear {
-            return "You did not choose all colors. Please try again."
+            return k.response.incomplete
         // Check to see if all guess colors match the master code colors
         } else if tempGuessArray[0] == masterCodeArray [0] &&
                     tempGuessArray[1] == masterCodeArray [1] &&
                     tempGuessArray[2] == masterCodeArray [2] &&
                     tempGuessArray[3] == masterCodeArray [3] {
-            return "Congratulations, you win!"
+            return k.response.win
         // Set the hint pegs appropriately
         } else {
             for counter in 0...3 {
@@ -123,7 +123,7 @@ struct Brain {
                 } else if blackPeg == 1 {
                     hintPeg = ["⚫️","⚪️","⚪️","▪️"]
                 } else if blackPeg == 2 {
-                    hintPeg = ["⚫️","⚪️","⚪️","▪️"]
+                    hintPeg = ["⚫️","⚫️","⚪️","▪️"]
                 } else {
                     hintPeg = ["⚫️","⚫️","⚫️","▪️"]
                 }
@@ -133,7 +133,7 @@ struct Brain {
                 } else if blackPeg == 1 {
                     hintPeg = ["⚫️","⚪️","⚪️","⚪️"]
                 } else if blackPeg == 2 {
-                    hintPeg = ["⚫️","⚪️","⚪️","⚪️"]
+                    hintPeg = ["⚫️","⚫️","⚪️","⚪️"]
                 } else if blackPeg == 3 {
                     hintPeg = ["⚫️","⚫️","⚫️","⚪️"]
                 } else {
@@ -142,7 +142,7 @@ struct Brain {
             default:
                 hintPeg = ["▪️","▪️","▪️","▪️"]
             }
-            return "Sorry, that is incorrect."
+            return k.response.incorrect
         }
     }
 }
