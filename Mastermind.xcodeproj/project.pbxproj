@@ -11,6 +11,7 @@
 		C3AF2D112795E4330033222A /* Brain.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3AF2D102795E4330033222A /* Brain.swift */; };
 		C3AF2D17279AE3C50033222A /* InstructionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3AF2D16279AE3C50033222A /* InstructionViewController.swift */; };
 		C3B4BD9A27A5B95700395F44 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B4BD9927A5B95700395F44 /* Constants.swift */; };
+		C3B4BD9C27A6DC4E00395F44 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B4BD9B27A6DC4E00395F44 /* UserViewController.swift */; };
 		C3BA715727959D16006AF54C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BA715627959D16006AF54C /* AppDelegate.swift */; };
 		C3BA715927959D16006AF54C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BA715827959D16006AF54C /* SceneDelegate.swift */; };
 		C3BA715B27959D16006AF54C /* EntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BA715A27959D16006AF54C /* EntryViewController.swift */; };
@@ -44,6 +45,7 @@
 		C3AF2D102795E4330033222A /* Brain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Brain.swift; sourceTree = "<group>"; };
 		C3AF2D16279AE3C50033222A /* InstructionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionViewController.swift; sourceTree = "<group>"; };
 		C3B4BD9927A5B95700395F44 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		C3B4BD9B27A6DC4E00395F44 /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 		C3BA715327959D16006AF54C /* Mastermind.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mastermind.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3BA715627959D16006AF54C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C3BA715827959D16006AF54C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -100,6 +102,7 @@
 				C3BA715A27959D16006AF54C /* EntryViewController.swift */,
 				C3AF2D092795BC330033222A /* GameViewController.swift */,
 				C3AF2D16279AE3C50033222A /* InstructionViewController.swift */,
+				C3B4BD9B27A6DC4E00395F44 /* UserViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -295,6 +298,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C3AF2D0A2795BC330033222A /* GameViewController.swift in Sources */,
+				C3B4BD9C27A6DC4E00395F44 /* UserViewController.swift in Sources */,
 				C3BA715B27959D16006AF54C /* EntryViewController.swift in Sources */,
 				C3BA715727959D16006AF54C /* AppDelegate.swift in Sources */,
 				C3AF2D17279AE3C50033222A /* InstructionViewController.swift in Sources */,
