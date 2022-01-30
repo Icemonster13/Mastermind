@@ -22,9 +22,13 @@ class GameViewController: UIViewController {
     @IBOutlet weak var btnValidateAnswer: UIButton!
     @IBOutlet weak var btnReset: UIButton!
     @IBOutlet weak var btnInstructions: UIButton!
+    @IBOutlet weak var statusLabel: UILabel!
     
     // Variable link to the Brain struct
     var codeBrain = Brain()
+    
+    // Variable link to User Default Data for persistent data
+    // let defaultData = UserDefaults.standard
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -91,11 +95,14 @@ class GameViewController: UIViewController {
         if validationResult == k.response.win {
             hideMasterCode(hide: false)
             btnValidateAnswer.setTitle("👍", for: .normal)
-            // btnValidateAnswer.layer.borderWidth = 0
             btnValidateAnswer.isUserInteractionEnabled = false
-            sendAlert(message: validationResult)
+            statusLabel.text = k.response.win
+            // let totalWins = defaultData.integer(forKey: "Wins")
+            // defaultData.set(totalWins + 1, forKey: "Wins")
+            //sendAlert(message: validationResult)
         } else if validationResult == k.response.incomplete {
-            sendAlert(message: validationResult)
+            statusLabel.text = k.response.incomplete
+            //sendAlert(message: validationResult)
         } else {
             //Set the Black and White Hint Pegs
             let blackPegPosition = (codeBrain.guessCounter * 100) + 1
@@ -108,11 +115,14 @@ class GameViewController: UIViewController {
             // If it is, then stop the game
             if codeBrain.guessCounter == 10 {
                 hideMasterCode(hide: false)
-                btnValidateAnswer.layer.borderWidth = 0
-                btnValidateAnswer.setTitle("", for: .normal)
-                sendAlert(message: k.response.lose)
+                btnValidateAnswer.setTitle("👎", for: .normal)
+                statusLabel.text = k.response.lose
+                // let totalLosses = defaultData.integer(forKey: "Losses")
+                // defaultData.set(totalLosses, forKey: "Losses")
+                //sendAlert(message: k.response.lose)
             } else {
-                sendAlert(message: validationResult)
+                statusLabel.text = k.response.incorrect
+                //sendAlert(message: validationResult)
                 // Increase the guessCounter
                 codeBrain.guessCounter += 1
                 // Enable the appropriate guess buttons
@@ -130,6 +140,8 @@ class GameViewController: UIViewController {
             button.layer.borderWidth = 1
             button.backgroundColor = UIColor.clear
         }
+        // Set the statusLabel text
+        statusLabel.text = "Guess the code!"
         // Turn off the validate button
         btnValidateAnswer.isUserInteractionEnabled = false
         // Set the reset button to Quit before the first attempt
