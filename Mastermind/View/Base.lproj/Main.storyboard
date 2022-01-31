@@ -31,7 +31,7 @@
                                 <rect key="frame" x="20" y="670" width="374" height="50"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3hp-Es-SlV">
-                                        <rect key="frame" x="0.0" y="9.5" width="175.5" height="31"/>
+                                        <rect key="frame" x="0.0" y="9.5" width="118" height="31"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="Play Game"/>
                                         <connections>
@@ -39,11 +39,19 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e2V-eS-gXk">
-                                        <rect key="frame" x="179.5" y="9.5" width="194.5" height="31"/>
+                                        <rect key="frame" x="122" y="9.5" width="128.5" height="31"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="Instructions"/>
                                         <connections>
                                             <segue destination="Don-Gc-m2f" kind="presentation" id="EnW-30-4ex"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wVf-o6-4M7" userLabel="User Info">
+                                        <rect key="frame" x="254.5" y="9.5" width="119.5" height="31"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Player Info"/>
+                                        <connections>
+                                            <segue destination="GSP-3R-s8h" kind="presentation" modalPresentationStyle="fullScreen" id="lxL-sv-5fj"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -944,7 +952,7 @@
         <!--User View Controller-->
         <scene sceneID="3eK-CH-t0A">
             <objects>
-                <viewController id="GSP-3R-s8h" customClass="UserViewController" sceneMemberID="viewController">
+                <viewController id="GSP-3R-s8h" customClass="UserViewController" customModule="Mastermind" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="MBQ-uY-dkk">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -953,10 +961,10 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eBC-VK-J5f" userLabel="Header Label">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="163"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="116"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MASTERMIND" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N10-3Y-jzh">
-                                                <rect key="frame" x="118" y="65" width="178" height="33"/>
+                                                <rect key="frame" x="118" y="41.5" width="178" height="33"/>
                                                 <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="30"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -969,16 +977,16 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XcU-oW-0cN" userLabel="Ratings">
-                                        <rect key="frame" x="0.0" y="164" width="414" height="162.5"/>
+                                        <rect key="frame" x="0.0" y="117" width="414" height="116"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="rVw-K6-n0L">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="162.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="116"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yXV-i6-yGj" userLabel="Label">
-                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="81"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="58"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Code Breaker Rating" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f6Z-Lt-N5d">
-                                                                <rect key="frame" x="101.5" y="26" width="211.5" height="29"/>
+                                                                <rect key="frame" x="101.5" y="14.5" width="211.5" height="29"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
@@ -991,10 +999,10 @@
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KbU-nX-OS6" userLabel="Image">
-                                                        <rect key="frame" x="0.0" y="81" width="414" height="81.5"/>
+                                                        <rect key="frame" x="0.0" y="58" width="414" height="58"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="⭐️⭐️⭐️⭐️⭐️" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YXG-Xt-hxg">
-                                                                <rect key="frame" x="94.5" y="17" width="225" height="48"/>
+                                                                <rect key="frame" x="94.5" y="5" width="225" height="48"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
@@ -1017,11 +1025,26 @@
                                             <constraint firstAttribute="trailing" secondItem="rVw-K6-n0L" secondAttribute="trailing" id="nWr-hu-NLa"/>
                                         </constraints>
                                     </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JGy-B4-r2t" userLabel="Played Label">
+                                        <rect key="frame" x="0.0" y="234" width="414" height="116"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Games Played: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gPO-JZ-xMq" userLabel="Games Played Label">
+                                                <rect key="frame" x="127.5" y="43.5" width="159" height="29"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="gPO-JZ-xMq" firstAttribute="centerX" secondItem="JGy-B4-r2t" secondAttribute="centerX" id="UUa-PQ-FOE"/>
+                                            <constraint firstItem="gPO-JZ-xMq" firstAttribute="centerY" secondItem="JGy-B4-r2t" secondAttribute="centerY" id="VB2-fc-DRq"/>
+                                        </constraints>
+                                    </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0SG-eM-ecv" userLabel="Wins Label">
-                                        <rect key="frame" x="0.0" y="327.5" width="414" height="163"/>
+                                        <rect key="frame" x="0.0" y="351" width="414" height="116"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Wins: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KlF-ks-X6D">
-                                                <rect key="frame" x="148" y="67" width="118" height="29"/>
+                                                <rect key="frame" x="148" y="43.5" width="118" height="29"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -1034,10 +1057,10 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cjp-a8-Fzg" userLabel="Losses Label">
-                                        <rect key="frame" x="0.0" y="491.5" width="414" height="162.5"/>
+                                        <rect key="frame" x="0.0" y="468" width="414" height="116"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Losses: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SZa-uq-Na5">
-                                                <rect key="frame" x="138" y="67" width="138.5" height="29"/>
+                                                <rect key="frame" x="138" y="43.5" width="138.5" height="29"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -1050,10 +1073,10 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T8M-KX-4Pt" userLabel="Percentage Label">
-                                        <rect key="frame" x="0.0" y="655" width="414" height="163"/>
+                                        <rect key="frame" x="0.0" y="585" width="414" height="116"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Win Percentage: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vog-9O-Bya">
-                                                <rect key="frame" x="120" y="67" width="174.5" height="29"/>
+                                                <rect key="frame" x="120" y="43.5" width="174.5" height="29"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -1063,6 +1086,24 @@
                                         <constraints>
                                             <constraint firstItem="Vog-9O-Bya" firstAttribute="centerY" secondItem="T8M-KX-4Pt" secondAttribute="centerY" id="Lp9-tm-M0x"/>
                                             <constraint firstItem="Vog-9O-Bya" firstAttribute="centerX" secondItem="T8M-KX-4Pt" secondAttribute="centerX" id="UIa-8J-3bk"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yjr-zx-4DS" userLabel="Close Button">
+                                        <rect key="frame" x="0.0" y="702" width="414" height="116"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZTv-XJ-ORL">
+                                                <rect key="frame" x="177" y="42.5" width="60.5" height="31"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="filled" title="Close"/>
+                                                <connections>
+                                                    <action selector="closeButtonPressed:" destination="GSP-3R-s8h" eventType="touchUpInside" id="DIF-DO-rJ2"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstItem="ZTv-XJ-ORL" firstAttribute="centerY" secondItem="yjr-zx-4DS" secondAttribute="centerY" id="6pT-cX-LhP"/>
+                                            <constraint firstItem="ZTv-XJ-ORL" firstAttribute="centerX" secondItem="yjr-zx-4DS" secondAttribute="centerX" id="6qs-Q8-vYc"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -1077,6 +1118,13 @@
                             <constraint firstItem="RMF-FR-b3D" firstAttribute="bottom" secondItem="0d5-7h-TTN" secondAttribute="bottom" id="JeU-gy-ZIT"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="gamesPlayedLabel" destination="gPO-JZ-xMq" id="aPd-Tg-7T7"/>
+                        <outlet property="percentWinsLabel" destination="Vog-9O-Bya" id="vXO-iM-F0q"/>
+                        <outlet property="ratingLabel" destination="YXG-Xt-hxg" id="XGs-OZ-5xp"/>
+                        <outlet property="totalLossesLabel" destination="SZa-uq-Na5" id="t2C-Gk-7LE"/>
+                        <outlet property="totalWinsLabel" destination="KlF-ks-X6D" id="NjX-DL-FLl"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0IL-UW-nk2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

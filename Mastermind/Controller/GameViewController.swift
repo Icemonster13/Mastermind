@@ -28,7 +28,7 @@ class GameViewController: UIViewController {
     var codeBrain = Brain()
     
     // Variable link to User Default Data for persistent data
-    // let defaultData = UserDefaults.standard
+    let defaultData = UserDefaults.standard
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -97,9 +97,9 @@ class GameViewController: UIViewController {
             btnValidateAnswer.setTitle("👍", for: .normal)
             btnValidateAnswer.isUserInteractionEnabled = false
             statusLabel.text = k.response.win
-            // let totalWins = defaultData.integer(forKey: "Wins")
-            // defaultData.set(totalWins + 1, forKey: "Wins")
-            //sendAlert(message: validationResult)
+            let totalWins = defaultData.integer(forKey: "Win")
+            defaultData.set(totalWins + 1, forKey: "Win")
+            sendAlert(message: validationResult)
         } else if validationResult == k.response.incomplete {
             statusLabel.text = k.response.incomplete
             //sendAlert(message: validationResult)
@@ -117,9 +117,9 @@ class GameViewController: UIViewController {
                 hideMasterCode(hide: false)
                 btnValidateAnswer.setTitle("👎", for: .normal)
                 statusLabel.text = k.response.lose
-                // let totalLosses = defaultData.integer(forKey: "Losses")
-                // defaultData.set(totalLosses, forKey: "Losses")
-                //sendAlert(message: k.response.lose)
+                let totalLosses = defaultData.integer(forKey: "Loss")
+                defaultData.set(totalLosses + 1, forKey: "Loss")
+                sendAlert(message: k.response.lose)
             } else {
                 statusLabel.text = k.response.incorrect
                 //sendAlert(message: validationResult)
@@ -171,6 +171,8 @@ class GameViewController: UIViewController {
     //MARK -- Start the game
     
     func startGame() {
+        let totalPlayed = defaultData.integer(forKey: "Played")
+        defaultData.set(totalPlayed + 1, forKey: "Played")
         // Get the master code and apply it to the master code buttons
         codeBrain.getMasterCode()
         btnMasterCode1.backgroundColor = codeBrain.masterCodeArray[0]
