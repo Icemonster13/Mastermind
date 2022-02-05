@@ -14,15 +14,15 @@ class EntryViewController: UIViewController {
         
         let uDefault = UserDefaults.standard
         
-        // Check to make sure User Keys are available and have a value
-        if uDefault.object(forKey: "Win") == nil {
-            uDefault.set(0, forKey: "Win")
+        // Check to make sure UserDefault Keys are available and have a value
+        if uDefault.object(forKey: k.uDefaultKeys.win) == nil {
+            uDefault.set(0, forKey: k.uDefaultKeys.win)
         }
-        if uDefault.object(forKey: "Loss") == nil {
-            uDefault.set(0, forKey: "Loss")
+        if uDefault.object(forKey: k.uDefaultKeys.loss) == nil {
+            uDefault.set(0, forKey: k.uDefaultKeys.loss)
         }
-        if uDefault.object(forKey: "Played") == nil {
-            uDefault.set(0, forKey: "Played")
+        if uDefault.object(forKey: k.uDefaultKeys.played) == nil {
+            uDefault.set(0, forKey: k.uDefaultKeys.played)
         }
         
     }

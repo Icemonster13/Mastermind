@@ -149,7 +149,7 @@
                                         <rect key="frame" x="0.0" y="58" width="394" height="41"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i4E-CN-Pc9">
-                                                <rect key="frame" x="0.0" y="0.0" width="394" height="41"/>
+                                                <rect key="frame" x="179.5" y="12" width="35.5" height="17"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -157,12 +157,8 @@
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
-                                            <constraint firstItem="i4E-CN-Pc9" firstAttribute="leading" secondItem="pJE-TR-0xv" secondAttribute="leading" id="Ik3-61-ybE"/>
-                                            <constraint firstAttribute="bottom" secondItem="i4E-CN-Pc9" secondAttribute="bottom" id="LtR-Sh-djh"/>
-                                            <constraint firstItem="i4E-CN-Pc9" firstAttribute="centerY" secondItem="pJE-TR-0xv" secondAttribute="centerY" id="RL3-Xl-tAu"/>
-                                            <constraint firstAttribute="trailing" secondItem="i4E-CN-Pc9" secondAttribute="trailing" id="Y92-9C-DPQ"/>
-                                            <constraint firstItem="i4E-CN-Pc9" firstAttribute="centerX" secondItem="pJE-TR-0xv" secondAttribute="centerX" id="oj7-5g-Aiw"/>
-                                            <constraint firstItem="i4E-CN-Pc9" firstAttribute="top" secondItem="pJE-TR-0xv" secondAttribute="top" id="tfU-qi-kba"/>
+                                            <constraint firstItem="i4E-CN-Pc9" firstAttribute="centerY" secondItem="pJE-TR-0xv" secondAttribute="centerY" id="B8Z-6n-2Mg"/>
+                                            <constraint firstItem="i4E-CN-Pc9" firstAttribute="centerX" secondItem="pJE-TR-0xv" secondAttribute="centerX" id="L5d-Qz-XNS"/>
                                         </constraints>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="pWL-so-lnL" userLabel="Guess 1 Stack">
@@ -1088,22 +1084,35 @@
                                             <constraint firstItem="Vog-9O-Bya" firstAttribute="centerX" secondItem="T8M-KX-4Pt" secondAttribute="centerX" id="UIa-8J-3bk"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yjr-zx-4DS" userLabel="Close Button">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yjr-zx-4DS" userLabel="Buttons">
                                         <rect key="frame" x="0.0" y="702" width="414" height="116"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZTv-XJ-ORL">
-                                                <rect key="frame" x="177" y="42.5" width="60.5" height="31"/>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="filled" title="Close"/>
-                                                <connections>
-                                                    <action selector="closeButtonPressed:" destination="GSP-3R-s8h" eventType="touchUpInside" id="DIF-DO-rJ2"/>
-                                                </connections>
-                                            </button>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="fxs-Wf-sDW">
+                                                <rect key="frame" x="141" y="42.5" width="132" height="31"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="umg-iQ-Idx">
+                                                        <rect key="frame" x="0.0" y="0.0" width="61" height="31"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="filled" title="Reset"/>
+                                                        <connections>
+                                                            <action selector="resetButtonPressed:" destination="GSP-3R-s8h" eventType="touchUpInside" id="Km2-dd-vu9"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZTv-XJ-ORL">
+                                                        <rect key="frame" x="71" y="0.0" width="61" height="31"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="filled" title="Close"/>
+                                                        <connections>
+                                                            <action selector="closeButtonPressed:" destination="GSP-3R-s8h" eventType="touchUpInside" id="DIF-DO-rJ2"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
-                                            <constraint firstItem="ZTv-XJ-ORL" firstAttribute="centerY" secondItem="yjr-zx-4DS" secondAttribute="centerY" id="6pT-cX-LhP"/>
-                                            <constraint firstItem="ZTv-XJ-ORL" firstAttribute="centerX" secondItem="yjr-zx-4DS" secondAttribute="centerX" id="6qs-Q8-vYc"/>
+                                            <constraint firstItem="fxs-Wf-sDW" firstAttribute="centerY" secondItem="yjr-zx-4DS" secondAttribute="centerY" id="JBy-aJ-45h"/>
+                                            <constraint firstItem="fxs-Wf-sDW" firstAttribute="centerX" secondItem="yjr-zx-4DS" secondAttribute="centerX" id="Q6N-pA-Rdi"/>
                                         </constraints>
                                     </view>
                                 </subviews>

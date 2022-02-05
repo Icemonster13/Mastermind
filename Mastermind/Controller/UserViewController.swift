@@ -16,33 +16,27 @@ class UserViewController: UIViewController {
     @IBOutlet weak var totalLossesLabel: UILabel!
     @IBOutlet weak var percentWinsLabel: UILabel!
     
-    // Variables
-    var win: Int = 0
-    var loss: Int = 0
-    var played: Int = 0
-    var winPercent: Double = 0.0
+    let defaults = UserDefaults.standard
     
     // viewDidLoad function
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let defaults = UserDefaults.standard
-
-        if let wins = defaults.integer(forKey: "Win") as Int? {
-            win = wins
-        }
-        if let losses = defaults.integer(forKey: "Loss") as Int? {
-            loss = losses
-        }
-        if let plays = defaults.integer(forKey: "Played") as Int? {
-            played = plays
-        }
+        // Connect to the UserDefaults
+        //let defaults = UserDefaults.standard
+        
+        // Variables
+        let win: Int = defaults.integer(forKey: "Win")
+        let loss: Int = defaults.integer(forKey: "Loss")
+        let played: Int = defaults.integer(forKey: "Played")
+        var winPercent: Double = 0.0
 
         // Set the labels with the User Default Data
         gamesPlayedLabel.text = "Games Played: \(played)"
         totalWinsLabel.text = "Total Wins: \(win)"
         totalLossesLabel.text = "Total Losses: \(loss)"
 
+        // Avoid division by zero if no games have been played yet
         if played != 0 {
             winPercent = (Double(win) / Double(played)) * 100
             percentWinsLabel.text = String(format: "Win Percentage: %.1f", winPercent)
@@ -52,7 +46,7 @@ class UserViewController: UIViewController {
 
         // Calculate the win percentage and set the label using User Default Data
         switch Int(winPercent) {
-        case 0...35:
+        case 1...35:
             ratingLabel.text = "⭐️"
         case 36...55:
             ratingLabel.text = "⭐️⭐️"
@@ -63,12 +57,21 @@ class UserViewController: UIViewController {
         case 96...100:
             ratingLabel.text = "⭐️⭐️⭐️⭐️⭐️"
         default:
-            ratingLabel.text = ""
+            ratingLabel.text = "No Stars Yet"
         }
     }
     
     // Close the screen when pressed
     @IBAction func closeButtonPressed(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    // Reset the user defaults to 0
+    @IBAction func resetButtonPressed(_ sender: UIButton) {
+        defaults.set(0, forKey: k.uDefaultKeys.win)
+        defaults.set(0, forKey: k.uDefaultKeys.loss)
+        defaults.set(0, forKey: k.uDefaultKeys.played)
+        self.dismiss(animated: true, completion: nil)
+        
     }
 }

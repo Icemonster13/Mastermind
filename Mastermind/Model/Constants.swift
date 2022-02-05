@@ -19,4 +19,11 @@ struct k {
         static let incorrect: String =      "Sorry, that is incorrect."
     }
     
+    struct uDefaultKeys {
+        
+        static let win: String =            "Win"
+        static let loss: String =           "Loss"
+        static let played: String =         "Played"
+    }
+    
 }

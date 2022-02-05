@@ -97,8 +97,8 @@ class GameViewController: UIViewController {
             btnValidateAnswer.setTitle("👍", for: .normal)
             btnValidateAnswer.isUserInteractionEnabled = false
             statusLabel.text = k.response.win
-            let totalWins = defaultData.integer(forKey: "Win")
-            defaultData.set(totalWins + 1, forKey: "Win")
+            let totalWins = defaultData.integer(forKey: k.uDefaultKeys.win)
+            defaultData.set(totalWins + 1, forKey: k.uDefaultKeys.win)
             sendAlert(message: validationResult)
         } else if validationResult == k.response.incomplete {
             statusLabel.text = k.response.incomplete
@@ -117,8 +117,8 @@ class GameViewController: UIViewController {
                 hideMasterCode(hide: false)
                 btnValidateAnswer.setTitle("👎", for: .normal)
                 statusLabel.text = k.response.lose
-                let totalLosses = defaultData.integer(forKey: "Loss")
-                defaultData.set(totalLosses + 1, forKey: "Loss")
+                let totalLosses = defaultData.integer(forKey: k.uDefaultKeys.loss)
+                defaultData.set(totalLosses + 1, forKey: k.uDefaultKeys.loss)
                 sendAlert(message: k.response.lose)
             } else {
                 statusLabel.text = k.response.incorrect
@@ -171,8 +171,8 @@ class GameViewController: UIViewController {
     //MARK -- Start the game
     
     func startGame() {
-        let totalPlayed = defaultData.integer(forKey: "Played")
-        defaultData.set(totalPlayed + 1, forKey: "Played")
+        let totalPlayed = defaultData.integer(forKey: k.uDefaultKeys.played)
+        defaultData.set(totalPlayed + 1, forKey: k.uDefaultKeys.played)
         // Get the master code and apply it to the master code buttons
         codeBrain.getMasterCode()
         btnMasterCode1.backgroundColor = codeBrain.masterCodeArray[0]
