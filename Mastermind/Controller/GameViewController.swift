@@ -21,6 +21,7 @@ class GameViewController: UIViewController {
     @IBOutlet weak var btnMasterCode4: UIButton!
     @IBOutlet weak var btnValidateAnswer: UIButton!
     @IBOutlet weak var btnReset: UIButton!
+    @IBOutlet weak var btnQuit: UIButton!
     @IBOutlet weak var btnInstructions: UIButton!
     @IBOutlet weak var statusLabel: UILabel!
     
@@ -29,6 +30,9 @@ class GameViewController: UIViewController {
     
     // Variable link to User Default Data for persistent data
     let defaultData = UserDefaults.standard
+    
+    // Set a global variable to track whether the game should count
+    var gameStarted: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,10 +43,8 @@ class GameViewController: UIViewController {
     }
     
     @IBAction func btnReset(_ sender: UIButton) {
-        // Reset the view to the original
-        if sender.currentTitle == "Quit" {
-            // Dismiss the screen and return to the EntryViewController
-            self.dismiss(animated: true, completion: nil)
+        if gameStarted == true {
+            sendAlert(message: k.response.quitafterstart)
         } else {
             // Reset the game and start over
             formatView()
@@ -51,9 +53,20 @@ class GameViewController: UIViewController {
         }
     }
     
+    @IBAction func btnQuit(_ sender: UIButton) {
+        if gameStarted == true {
+            sendAlert(message: k.response.quitafterstart)
+        } else {
+            self.dismiss(animated: true, completion: nil)
+        }
+    }
+    
     // Each click loops through the colors of the guess button
     @IBAction func btnGuessClicked(_ sender: UIButton) {
         if codeBrain.guessCounter > 0 {
+            // Clear the message from the status label
+            statusLabel.text = ""
+            // Change the color of the button
             switch sender.backgroundColor {
             case UIColor.clear:
                 sender.backgroundColor = UIColor.red
@@ -77,12 +90,20 @@ class GameViewController: UIViewController {
     
     // Action when the Check button is clicked
     @IBAction func btnValidate(_ sender: UIButton) {
+        
+        // This signifies the starting of the game and counts towards games played
+        if gameStarted == false {
+            // Count the game as started and add it to the User Defaults for tracking
+            let totalPlayed = defaultData.integer(forKey: k.uDefaultKeys.played)
+            defaultData.set(totalPlayed + 1, forKey: k.uDefaultKeys.played)
+            gameStarted = true
+        }
+
         // Assign the guess colors to the guessCodeArray
         let guessStart: Int = (codeBrain.guessCounter * 4) - 3
         let guessEnd: Int = codeBrain.guessCounter * 4
         
         // Enable the reset button
-        btnReset.setTitle("Reset", for: .normal)
         btnReset.isUserInteractionEnabled = true
         
         for tagvalue in guessStart...guessEnd {
@@ -141,11 +162,11 @@ class GameViewController: UIViewController {
             button.backgroundColor = UIColor.clear
         }
         // Set the statusLabel text
-        statusLabel.text = "Guess the code!"
+        statusLabel.text = "Can you guess the code?"
         // Turn off the validate button
         btnValidateAnswer.isUserInteractionEnabled = false
-        // Set the reset button to Quit before the first attempt
-        btnReset.setTitle("Quit", for: .normal)
+        // Disable the Reset button until the first play
+        btnReset.isUserInteractionEnabled = false
         // Reset the guess counter
         codeBrain.guessCounter = 0
         // Reset the hint labels
@@ -171,8 +192,7 @@ class GameViewController: UIViewController {
     //MARK -- Start the game
     
     func startGame() {
-        let totalPlayed = defaultData.integer(forKey: k.uDefaultKeys.played)
-        defaultData.set(totalPlayed + 1, forKey: k.uDefaultKeys.played)
+        gameStarted = false
         // Get the master code and apply it to the master code buttons
         codeBrain.getMasterCode()
         btnMasterCode1.backgroundColor = codeBrain.masterCodeArray[0]
@@ -221,6 +241,16 @@ class GameViewController: UIViewController {
                 // Dismiss the screen and return to the EntryViewController
                 self.dismiss(animated: true, completion: nil)
             })
+            alert.addAction(yes)
+            alert.addAction(no)
+        } else if message == k.response.quitafterstart {
+            let yes = UIAlertAction(title: "YES", style: .default) { (action) -> Void in
+                // Dismiss the screen and return to the EntryViewController
+                self.dismiss(animated: true, completion: nil)
+            }
+            let no =  UIAlertAction(title: "NO", style: .default) { (action) -> Void in
+                print("Do Nothing")
+            }
             alert.addAction(yes)
             alert.addAction(no)
         } else {

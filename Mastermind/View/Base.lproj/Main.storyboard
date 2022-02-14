@@ -747,10 +747,18 @@
                                 <rect key="frame" x="0.0" y="802" width="414" height="60"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="S0V-pP-pth">
-                                        <rect key="frame" x="104" y="8" width="206" height="31"/>
+                                        <rect key="frame" x="51.5" y="8" width="311.5" height="31"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K7c-Ag-JiR">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WDd-p8-C58" userLabel="Btn Quit">
                                                 <rect key="frame" x="0.0" y="0.0" width="100.5" height="31"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="filled" title="Quit"/>
+                                                <connections>
+                                                    <action selector="btnQuit:" destination="zjZ-7l-JN0" eventType="touchUpInside" id="UGv-PT-gHT"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K7c-Ag-JiR">
+                                                <rect key="frame" x="105.5" y="0.0" width="100.5" height="31"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="filled" title="Reset"/>
                                                 <connections>
@@ -758,7 +766,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q6e-xP-RR9">
-                                                <rect key="frame" x="105.5" y="0.0" width="100.5" height="31"/>
+                                                <rect key="frame" x="211" y="0.0" width="100.5" height="31"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="filled" title="Instructions"/>
                                                 <connections>
@@ -796,6 +804,7 @@
                         <outlet property="btnMasterCode2" destination="Fpn-dS-wfJ" id="JeW-DI-cCe"/>
                         <outlet property="btnMasterCode3" destination="hOk-uA-yOm" id="1xK-mF-GZj"/>
                         <outlet property="btnMasterCode4" destination="Gsg-ZX-o3D" id="b2g-oi-VKy"/>
+                        <outlet property="btnQuit" destination="WDd-p8-C58" id="T9N-Jy-tou"/>
                         <outlet property="btnReset" destination="K7c-Ag-JiR" id="VwK-h4-7at"/>
                         <outlet property="btnValidateAnswer" destination="LhT-Fo-ilq" id="t7O-QO-l9d"/>
                         <outlet property="statusLabel" destination="i4E-CN-Pc9" id="z5C-df-4Sv"/>

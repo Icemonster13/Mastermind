@@ -16,26 +16,31 @@ class UserViewController: UIViewController {
     @IBOutlet weak var totalLossesLabel: UILabel!
     @IBOutlet weak var percentWinsLabel: UILabel!
     
+    // Variables
     let defaults = UserDefaults.standard
+    var win: Int = 0
+    var loss: Int = 0
+    var played: Int = 0
+    var winPercent: Double = 0.0
     
     // viewDidLoad function
     override func viewDidLoad() {
         super.viewDidLoad()
+        setLabels()
+    }
+    
+    // Set the label values
+    func setLabels() {
+        win = defaults.integer(forKey: "Win")
+        loss = defaults.integer(forKey: "Loss")
+        played = defaults.integer(forKey: "Played")
+        winPercent = 0.0
         
-        // Connect to the UserDefaults
-        //let defaults = UserDefaults.standard
-        
-        // Variables
-        let win: Int = defaults.integer(forKey: "Win")
-        let loss: Int = defaults.integer(forKey: "Loss")
-        let played: Int = defaults.integer(forKey: "Played")
-        var winPercent: Double = 0.0
-
         // Set the labels with the User Default Data
         gamesPlayedLabel.text = "Games Played: \(played)"
         totalWinsLabel.text = "Total Wins: \(win)"
         totalLossesLabel.text = "Total Losses: \(loss)"
-
+        
         // Avoid division by zero if no games have been played yet
         if played != 0 {
             winPercent = (Double(win) / Double(played)) * 100
@@ -43,7 +48,7 @@ class UserViewController: UIViewController {
         } else {
             percentWinsLabel.text = "Win Percentage: 0%"
         }
-
+        
         // Calculate the win percentage and set the label using User Default Data
         switch Int(winPercent) {
         case 1...35:
@@ -71,7 +76,12 @@ class UserViewController: UIViewController {
         defaults.set(0, forKey: k.uDefaultKeys.win)
         defaults.set(0, forKey: k.uDefaultKeys.loss)
         defaults.set(0, forKey: k.uDefaultKeys.played)
-        self.dismiss(animated: true, completion: nil)
         
+        // Notify player of the reset
+        let alert = UIAlertController(title: k.appTitle, message: "Game History Has Been Reset", preferredStyle: UIAlertController.Style.alert)
+        let ok = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alert.addAction(ok)
+        self.present(alert, animated: true, completion: nil)
+        setLabels()
     }
 }
