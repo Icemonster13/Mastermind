@@ -1,5 +1,7 @@
 ![Safe Cracker (1024 x 1024)](https://user-images.githubusercontent.com/97739054/150642442-5bfe4a6f-e07e-45b3-936f-e8d1912c1bf2.png)
 
+![GitHub last commit](https://img.shields.io/github/last-commit/icemonster13/mastermind)
+
 # MASTERMIND
 
 Code-breaking game adapted from the popular version of Mastermind for one player, playing against the operating system.
@@ -23,3 +25,6 @@ Source - https://en.wikipedia.org/wiki/Mastermind_(board_game)
 
 ## License
 ![GitHub](https://img.shields.io/github/license/icemonster13/mastermind)
+
+## Social
+![Twitter Follow](https://img.shields.io/twitter/follow/mdpascucci?style=social)
